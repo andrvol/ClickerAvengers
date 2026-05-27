@@ -1,0 +1,25 @@
+body {
+    background-image: url("../images/background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+#mainMenuSelection{
+    background-color: #A0522D;
+    color: aliceblue;
+    border: solid 2px black;
+}
+
+#playingField{
+    height: 500px;
+    width: 500px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 10%;
+    margin-right: 5%;
+    margin-left: 5%;
+    background-color: black;
+}
