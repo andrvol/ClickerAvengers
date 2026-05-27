@@ -1,5 +1,11 @@
 export function clickAnimation() {
     const canvas = document.getElementById('playingField');
+    const clickSound = new Audio('assets/audio/click-sound.mp3');
+
+    canvas.addEventListener('click', () => {
+        clickSound.currentTime = 0;
+        clickSound.play();
+    });
 
     canvas.addEventListener('click', (e) => {
         const rect = canvas.getBoundingClientRect();
@@ -17,5 +23,4 @@ export function clickAnimation() {
 
         setTimeout(() => slash.remove(), 250);
     });
-
 }
