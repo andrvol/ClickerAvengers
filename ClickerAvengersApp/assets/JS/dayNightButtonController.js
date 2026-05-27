@@ -1,18 +1,21 @@
 export function updateDayNightBtn() {
     const btn = document.getElementById('dayNightBtn');
 
+    let isNight = false;
+
     btn.addEventListener('click', () => {
-        if (btn.style.backgroundColor === 'black') {
+        isNight = !isNight;
+
+        if (isNight) {
             setNightTheme(btn);
-        }
-        else{
+        } else {
             setDayTheme(btn);
         }
     });
 }
 
 function setNightTheme(btn) {
-    document.body.style.backgroundImage = 'url("assets/images/background-night.png")';
+    document.body.style.backgroundImage = 'url("./assets/images/background-night.png")';
 
     btn.style.backgroundColor = 'aliceblue';
     btn.style.color = 'black';
@@ -20,8 +23,8 @@ function setNightTheme(btn) {
     btn.textContent = '☀';
 }
 
-function setDayTheme(btn){
-    document.body.style.backgroundImage = 'url("assets/images/background.png")';
+function setDayTheme(btn) {
+    document.body.style.backgroundImage = 'url("./assets/images/background.png")';
 
     btn.style.backgroundColor = 'black';
     btn.style.color = 'aliceblue';

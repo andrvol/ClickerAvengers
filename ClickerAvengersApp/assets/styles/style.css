@@ -29,7 +29,8 @@ body {
 }
 
 #dayNightBtn {
-    width: 30px;
+    width: 50px;
+    height: 50px;
     display: flex;
     position: absolute;
     top: 0;
@@ -67,4 +68,10 @@ body {
         opacity: 0;
         transform: scaleX(1.5) rotate(-45deg);
     }
+}
+
+.music-btn{
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
 }
