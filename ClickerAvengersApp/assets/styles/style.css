@@ -6,26 +6,29 @@ body {
     background-attachment: fixed;
 }
 
-#mainMenuSelection{
+#mainMenuSelection {
     background-color: #A0522D;
     color: aliceblue;
     border: solid 2px black;
 }
 
-#playingField{
-    height: 500px;
-    width: 500px;
+#playingField {
+    height: 600px;
+    width: 600px;
     position: absolute;
     top: 0;
     right: 0;
     margin-top: 10%;
     margin-right: 5%;
     margin-left: 5%;
-    background-color: black;
+    background-image: url('../images/platforms/level1.svg');
+    background-size: 90% 90%;
+    background-position: center;
+    background-repeat: no-repeat;
     cursor: url('../images/sword-cursor.png'), auto;
 }
 
-#dayNightBtn{
+#dayNightBtn {
     width: 30px;
     display: flex;
     position: absolute;
@@ -40,4 +43,28 @@ body {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+}
+
+/* анимация ударов мечом для кликов по полю*/
+.slash {
+    position: absolute;
+    width: 70px;
+    height: 4px;
+    background: white;
+    pointer-events: none;
+    transform: rotate(-45deg);
+    animation: slashAnim 0.25s ease-out forwards;
+    box-shadow: 0 0 10px white;
+}
+
+@keyframes slashAnim {
+    from {
+        opacity: 1;
+        transform: scaleX(0) rotate(-45deg);
+    }
+
+    to {
+        opacity: 0;
+        transform: scaleX(1.5) rotate(-45deg);
+    }
 }
