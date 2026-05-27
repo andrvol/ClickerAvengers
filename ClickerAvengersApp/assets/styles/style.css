@@ -23,3 +23,19 @@ body {
     margin-left: 5%;
     background-color: black;
 }
+
+#dayNightBtn{
+    width: 30px;
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 15px;
+    background-color: black;
+    color: aliceblue;
+    border: solid 1px black;
+    font-size: 20px;
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+}
