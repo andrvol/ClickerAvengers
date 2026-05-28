@@ -89,3 +89,54 @@ body {
     margin-right: 15px;
     margin-bottom: 15px;
 }
+
+/* меню загрузки */
+#loadingScreen{
+    position: fixed;
+    inset: 0;
+
+    background: orange;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 20px;
+
+    z-index: 9999;
+}
+
+.progress-container{
+    width: 300px;
+    height: 20px;
+
+    background: #444;
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+#progressBar{
+    width: 0%;
+    height: 100%;
+
+    background: green;
+
+    transition: width 0.2s;
+}
+
+#playBtn{
+    color: aliceblue;
+    background-color: orangered;
+    border: solid 2px orangered;
+    border-radius: 20px;
+    width: 130px;
+    font-size: 20px;
+
+    display: none;
+}
+
+#languageSelect{
+    display: none;
+}
