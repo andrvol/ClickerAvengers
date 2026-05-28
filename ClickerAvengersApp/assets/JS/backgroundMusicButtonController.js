@@ -1,16 +1,29 @@
 const music = new Audio('./assets/audio/background-music.mp3');
 
 music.loop = true;
-
 music.volume = Number(localStorage.getItem('musicVolume')) || 0.2;
-
 music.muted = localStorage.getItem('musicMuted') === 'true';
 
-export function startMusic() {
+
+export function updateBackgroundMusicBtn() {
+    const musicBtn = document.getElementById('musicBtn');
+
+    updateIcon(musicBtn);
+
+    document.addEventListener('click', () => {
+        startMusic();
+    }, { once: true });
+
+    musicBtn.addEventListener('click', () => {
+        toggleMusic(musicBtn);
+    });
+}
+
+function startMusic() {
     music.play();
 }
 
-export function toggleMusic(btn) {
+function toggleMusic(btn) {
     music.muted = !music.muted;
 
     localStorage.setItem('musicMuted', music.muted);
@@ -18,7 +31,7 @@ export function toggleMusic(btn) {
     updateIcon(btn);
 }
 
-export function updateIcon(btn) {
+function updateIcon(btn) {
     btn.src = music.muted
         ? './assets/images/icons-elements/sound-off.svg'
         : './assets/images/icons-elements/sound-on.svg';

@@ -1,17 +1,8 @@
 import { updateDayNightBtn } from "./dayNightButtonController.js";
 import { clickAnimation } from "./playingFieldOnClickAnimationController.js";
-import {startMusic,toggleMusic,updateIcon } from './musicManager.js';
+import { updateBackgroundMusicBtn } from './backgroundMusicButtonController.js';
 
-const musicBtn = document.getElementById('musicBtn');
+updateBackgroundMusicBtn();
 
-updateIcon(musicBtn);
-
-document.addEventListener('click', () => {
-    startMusic();
-}, { once: true });
-
-musicBtn.addEventListener('click', () => {
-    toggleMusic(musicBtn);
-});
 updateDayNightBtn();
 clickAnimation();
