@@ -6,10 +6,12 @@ body {
     background-attachment: fixed;
 }
 
-#mainMenuSelection {
-    background-color: #A0522D;
+.booster-statsMenu{
+    display: flex;
+    flex-direction: column;
+    background-color: #B27C2F;
     color: aliceblue;
-    border: solid 2px black;
+    width: 40%;
 }
 
 #playingField {
