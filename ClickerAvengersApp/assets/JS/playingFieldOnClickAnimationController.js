@@ -1,4 +1,5 @@
 import { isSoundEffectOn } from "./soundEffectsButtonController.js";
+import { Monster } from "./Entities/monster.js";
 
 export function clickAnimation() {
     const canvas = document.getElementById('playingField');
@@ -23,8 +24,11 @@ export function clickAnimation() {
         const x = rect.left + rect.width / 2 - 20;
         const y = rect.top + rect.height / 2 - 25;
 
-        slash.style.left = x + 'px';
-        slash.style.top = y + 'px';
+        Monster.onFieldPositionX = x + 'px';
+        Monster.onFieldPositionY = y + 'px';
+
+        slash.style.left = Monster.onFieldPositionX;
+        slash.style.top = Monster.onFieldPositionY;
 
         document.body.appendChild(slash);
 
