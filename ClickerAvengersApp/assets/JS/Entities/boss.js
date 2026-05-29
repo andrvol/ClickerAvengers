@@ -1,8 +1,10 @@
 import { Monster } from "./monster.js";
 
 export class Boss extends Monster {
-    constructor(passiveImg, onHitImg, deathImg, deathSound, hp, secondsToKill) {
-        super(passiveImg, onHitImg, deathImg, deathSound, hp);
+    static bossBonusCoins = 1.0 // множитель монет
+
+    constructor(name, passiveImg, onHitImg, deathImg, deathSound, hp, coinsFromKilling,secondsToKill) {
+        super(name, passiveImg, onHitImg, deathImg, deathSound, hp, coinsFromKilling * Boss.bossBonusCoins);
 
         this.secondsToKill = secondsToKill; // float
     }
