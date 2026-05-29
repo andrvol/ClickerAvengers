@@ -4,6 +4,9 @@ export function clickAnimation() {
     const canvas = document.getElementById('playingField');
     const clickSound = new Audio('assets/audio/click-sound.mp3');
 
+    canvas.width = canvas.clientWidth;
+    canvas.height = canvas.clientHeight;
+
     canvas.addEventListener('click', () => {
         if (isSoundEffectOn()) {
             clickSound.currentTime = 0;
