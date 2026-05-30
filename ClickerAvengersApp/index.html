@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clicker Avengers</title>
     <link rel="stylesheet" href="./assets/styles/normalize.css">
+    <link rel="stylesheet" href="./assets/styles/fonts.css">
     <link rel="stylesheet" href="./assets/styles/style.css">
     <script type="module" src="./assets/JS/main.js"></script>
 </head>
@@ -29,15 +30,39 @@
             alt="soundEffectsOnOff" />
     </div>
     <button id="dayNightBtn">☽</button>
-    <div id="mainMenu">
-        <div id="boostersMenu" class="booster-statsMenu">
+    <div id="main-Menu" class="mainMenu">
+        <div class="upperMenu" id="upper-Menu">
+            <button class="upperBtn" id="booster-Btn">Booster</button>
+            <button class="upperBtn" id="stat-Btn"> Statistics</button>
+            <button class="upperBtn" id="anal-Btn">Analytics</button>
+        </div>
+        <div class="innerMenu " id="inner-Menu">
+            <div class="containerMenu" id="cont-Menu">
+                <div class="infoBox" id="info-Box">
+                    <div class="dpsBox" id="DPS-Box">Dps : 1</div> 
+                    <div class="hitDamage" id="hit-Damage">Hit damage : 1</div>
+                </div>
+            </div>
+            <div class="levelMenu" id="level-Menu">
+                <div class="levelTitle" id="level-Title">level.1</div>
+                <button class="levelBtn" id="x1">x1</button>
+                <button class="levelBtn" id="x10">x10</button>
+                <button class="levelBtn" id="x25">x25</button>
+                <button class="levelBtn" id="x100">x100</button>
+                <button class="levelBtn" id="xMax">Max</button>
+            </div>
+            <div class="innerContainer" id="inner-Container">
+
+            </div>
+        </div>
+        <!-- <div id="boostersMenu" class="booster-statsMenu">
             <div>Boosters</div>
             <div id="boosters"></div>
         </div>
         <div id="statsMenu" class="booster-statsMenu">
             <div>Statistics</div>
             <div id="stats"></div>
-        </div>
+        </div> -->
     </div>
     <canvas id="playingField"></canvas>
 </body>
