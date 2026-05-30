@@ -15,18 +15,21 @@ export function updateMonster() {
     window.addEventListener('resize', () => {
         Monster.setCenterPosition(canvas);
 
-        const enemy = document.querySelector('.enemy');
+        const enemy = document.querySelector('#enemy');
 
         if (enemy) {
             enemy.style.left = Monster.onFieldPositionX;
             enemy.style.top = Monster.onFieldPositionY;
         }
     });
+
+    let hitTimeout;
+    hitMonster(monster, hitTimeout, canvas);
 }
 
 function addMonsterOnField(monster, canvas) {
     const enemy = document.createElement('img');
-    enemy.className = 'enemy';
+    enemy.id = 'enemy';
 
     enemy.src = monster.passiveImg;
 
@@ -34,6 +37,20 @@ function addMonsterOnField(monster, canvas) {
     enemy.style.top = Monster.onFieldPositionY;
 
     canvas.parentElement.appendChild(enemy);
+}
+
+function hitMonster(monster, hitTimeout, canvas) {
+    const enemy = document.querySelector('#enemy');
+
+    canvas.addEventListener('click', () => {
+        enemy.src = monster.onHitImg;
+
+        clearTimeout(hitTimeout);
+
+        hitTimeout = setTimeout(() => {
+            enemy.src = monster.passiveImg;
+        }, 180);
+    });
 }
 
 function createMonster() {
@@ -45,7 +62,7 @@ function createMonster() {
 
     const coinsFromKilling = monsterIndex * (Math.floor(Math.random() * (200 - 100 + 1)) + 100);
     const passiveImg = `./assets/images/enemies/monsters-passive/${monsterIndex}.svg`;
-    const onHitImg = '';
+    const onHitImg = `./assets/images/enemies/monsters-hit/${monsterIndex}.png`;
     const deadImg = '';
     const monsterName = getMonsterName(monsterIndex);
     const monsterHp = monsterIndex * (Math.floor(Math.random() * (200 - 100 + 1)) + 100);

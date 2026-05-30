@@ -11,7 +11,7 @@ export class Monster {
         const rect = canvas.getBoundingClientRect();
 
         Monster.onFieldPositionX = rect.left + rect.width / 2 - 51 + 'px';
-        Monster.onFieldPositionY = rect.top + rect.height / 2 - 65 + 'px';
+        Monster.onFieldPositionY = rect.top + rect.height / 2 - 70 + 'px';
     }
 
     constructor(name, passiveImg, onHitImg, deathImg, deathSound, hp, coinsFromKilling) {
