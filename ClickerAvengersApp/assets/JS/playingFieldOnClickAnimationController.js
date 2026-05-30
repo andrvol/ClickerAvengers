@@ -24,11 +24,8 @@ export function clickAnimation() {
         const x = rect.left + rect.width / 2 - 20;
         const y = rect.top + rect.height / 2 - 25;
 
-        Monster.onFieldPositionX = x + 'px';
-        Monster.onFieldPositionY = y + 'px';
-
-        slash.style.left = Monster.onFieldPositionX;
-        slash.style.top = Monster.onFieldPositionY;
+        slash.style.left = x + 'px';
+        slash.style.top = y + 'px';
 
         document.body.appendChild(slash);
 

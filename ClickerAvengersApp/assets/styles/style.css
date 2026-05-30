@@ -142,3 +142,11 @@ body {
     display: none;
 }
 /* меню загрузки */
+
+/* монстр */
+.enemy{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    pointer-events: none;
+}
