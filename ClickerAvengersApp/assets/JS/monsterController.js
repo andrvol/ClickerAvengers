@@ -1,6 +1,7 @@
 import { Monster } from './Entities/monster.js'
 import { Platform } from './Entities/platform.js'
 import { Player } from './Entities/player.js'
+import { isSoundEffectOn } from './soundEffectsButtonController.js';
 
 export function updateMonster() {
     const canvas = document.getElementById('playingField');
@@ -10,8 +11,7 @@ export function updateMonster() {
 
     Monster.setCenterPosition(canvas);
 
-    const monster = createMonster();
-    addMonsterOnField(monster, canvas);
+    let monster = respawnMonster(canvas);
 
     window.addEventListener('resize', () => {
         Monster.setCenterPosition(canvas);
@@ -60,15 +60,60 @@ function addMonsterOnField(monster, canvas) {
     positionHpBar(canvas);
 }
 
-function hitMonster(monster, hitTimeout, canvas) {
+function respawnMonster(canvas){
+    clearMonster();
+
+    const monster = createMonster();
+    addMonsterOnField(monster, canvas)
+
+    return monster;
+}
+
+function clearMonster(){
+    document.querySelector('#enemy')?.remove();
+    document.querySelector('#hpContainer')?.remove();
+}
+
+function killMonster(monster){
+    monster.hp = 0;
+    updateHpBar(monster);
+
     const enemy = document.querySelector('#enemy');
+    enemy.src = monster.deadImg;
+    
+    if(isSoundEffectOn()){
+        const deathSound = new Audio('./assets/audio/death-sound.mp3');
 
-    canvas.addEventListener('click', () => {
-        if (monster.hp > 0) {
-            monster.hp -= Player.damagePerHit;
+        deathSound.currentTime = 0;
+        deathSound.play();
+    }
 
-            updateHpBar(monster);
+    Player.monstersKilled += 1;
+}
+
+function hitMonster(monster, hitTimeout, canvas) {
+    canvas.onclick = () => {
+        const enemy = document.querySelector('#enemy');
+
+        if (monster.hp <= 0) 
+            return;
+
+        if (monster.hp - Player.damagePerHit <= 0) {
+            killMonster(monster);
+
+            clearTimeout(hitTimeout);
+            enemy.src = monster.deadImg;
+
+            setTimeout(() => {
+                monster = respawnMonster(canvas);
+            }, 400);
+
+            return;
         }
+
+        monster.hp -= Player.damagePerHit;
+
+        updateHpBar(monster);
 
         enemy.src = monster.onHitImg;
 
@@ -77,7 +122,7 @@ function hitMonster(monster, hitTimeout, canvas) {
         hitTimeout = setTimeout(() => {
             enemy.src = monster.passiveImg;
         }, 180);
-    });
+    };
 }
 
 function createMonster() {

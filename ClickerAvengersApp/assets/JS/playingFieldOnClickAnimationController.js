@@ -3,7 +3,7 @@ import { Monster } from "./Entities/monster.js";
 
 export function clickAnimation() {
     const canvas = document.getElementById('playingField');
-    const clickSound = new Audio('assets/audio/click-sound.mp3');
+    const clickSound = new Audio('./assets/audio/click-sound.mp3');
 
     canvas.width = canvas.clientWidth;
     canvas.height = canvas.clientHeight;
