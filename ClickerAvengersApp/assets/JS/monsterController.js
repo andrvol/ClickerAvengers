@@ -77,9 +77,9 @@ function clearMonster(){
 function killMonster(monster){
     monster.hp = 0;
     updateHpBar(monster);
-
+    
     const enemy = document.querySelector('#enemy');
-    enemy.src = monster.deadImg;
+    enemy.src = monster.deathImg;
     
     if(isSoundEffectOn()){
         const deathSound = new Audio('./assets/audio/death-sound.mp3');
@@ -135,7 +135,7 @@ function createMonster() {
     const coinsFromKilling = monsterIndex * (Math.floor(Math.random() * (200 - 100 + 1)) + 100);
     const passiveImg = `./assets/images/enemies/monsters-passive/${monsterIndex}.svg`;
     const onHitImg = `./assets/images/enemies/monsters-hit/${monsterIndex}.png`;
-    const deadImg = '';
+    const deadImg = `./assets/images/enemies/monsters-dead/${monsterIndex}.png`;
     const monsterName = getMonsterName(monsterIndex);
     const monsterHp = monsterIndex * (Math.floor(Math.random() * (200 - 100 + 1)) + 100);
     const monsterDeathSound = './assets/audio/death-sound.mp3'
