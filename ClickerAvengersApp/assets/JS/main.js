@@ -4,6 +4,7 @@ import { updateBackgroundMusicBtn } from './backgroundMusicButtonController.js';
 import { updateSoundEffectsBtn } from "./soundEffectsButtonController.js";
 import { initLoadingScreen } from "./loadingScreenController.js"
 import { updateMonster } from "./monsterController.js";
+import { updatePlatform } from "./platformController.js";
 
 initLoadingScreen();
 
@@ -14,4 +15,5 @@ updateDayNightBtn();
 
 clickAnimation();
 
+updatePlatform();
 updateMonster();

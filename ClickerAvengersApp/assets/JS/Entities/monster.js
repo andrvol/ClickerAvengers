@@ -2,7 +2,7 @@ import { Platform } from './platform.js'
 
 export class Monster {
     static levelBonusCoins = 1.0 * Platform.level; // множитель монет
-    static levelHealthIncrease = 1.0 * Platform.level; // множитель хп
+    static levelHealthIncrease = 1.0 * Math.ceil(Platform.level / 5); // множитель хп
 
     static onFieldPositionX = 0;
     static onFieldPositionY = 0;
