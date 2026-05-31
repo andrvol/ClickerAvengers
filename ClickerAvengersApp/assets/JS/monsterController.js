@@ -1,5 +1,6 @@
 import { Monster } from './Entities/monster.js'
 import { Platform } from './Entities/platform.js'
+import { Player } from './Entities/player.js'
 
 export function updateMonster() {
     const canvas = document.getElementById('playingField');
@@ -21,6 +22,8 @@ export function updateMonster() {
             enemy.style.left = Monster.onFieldPositionX;
             enemy.style.top = Monster.onFieldPositionY;
         }
+
+        positionHpBar(canvas);
     });
 
     let hitTimeout;
@@ -37,12 +40,36 @@ function addMonsterOnField(monster, canvas) {
     enemy.style.top = Monster.onFieldPositionY;
 
     canvas.parentElement.appendChild(enemy);
+
+    // полоска hp
+    const hpContainer = document.createElement('div');
+    hpContainer.id = 'hpContainer';
+
+    const hpBar = document.createElement('div');
+    hpBar.id = 'hpBar';
+
+    const hpText = document.createElement('span');
+    hpText.id = 'hpText';
+    hpText.textContent = monster.hp;
+
+    hpContainer.appendChild(hpBar);
+    hpContainer.appendChild(hpText);
+
+    canvas.parentElement.appendChild(hpContainer);
+
+    positionHpBar(canvas);
 }
 
 function hitMonster(monster, hitTimeout, canvas) {
     const enemy = document.querySelector('#enemy');
 
     canvas.addEventListener('click', () => {
+        if (monster.hp > 0) {
+            monster.hp -= Player.damagePerHit;
+
+            updateHpBar(monster);
+        }
+
         enemy.src = monster.onHitImg;
 
         clearTimeout(hitTimeout);
@@ -228,4 +255,22 @@ function getMonsterUaName(index) {
     }
 
     return name;
+}
+
+function updateHpBar(monster) {
+    const hpBar = document.getElementById('hpBar');
+    const hpText = document.getElementById('hpText');
+
+    hpBar.style.width = ((monster.hp / monster.maxHp) * 100) + '%';
+    hpText.textContent = monster.hp;
+}
+
+function positionHpBar(canvas) {
+    const hpContainer = document.getElementById('hpContainer');
+
+    const rect = canvas.getBoundingClientRect();
+
+    hpContainer.style.width = `${rect.width}px`;
+    hpContainer.style.left = `${rect.left}px`;
+    hpContainer.style.top = `${rect.bottom - 40}px`;
 }

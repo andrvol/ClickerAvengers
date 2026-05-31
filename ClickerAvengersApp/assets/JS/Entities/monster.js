@@ -22,6 +22,7 @@ export class Monster {
         this.deathSound = deathSound;
 
         this.hp = hp * Monster.levelHealthIncrease;
+        this.maxHp = this.hp;
         this.coinsFromKilling = coinsFromKilling * Monster.levelBonusCoins;
     }
 }
