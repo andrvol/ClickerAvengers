@@ -102,7 +102,6 @@ function hitMonster(monster, hitTimeout, canvas) {
             killMonster(monster);
 
             clearTimeout(hitTimeout);
-            enemy.src = monster.deadImg;
 
             setTimeout(() => {
                 monster = respawnMonster(canvas);
