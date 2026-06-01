@@ -1,4 +1,4 @@
-export function initLoadingScreen() {
+export function initLoadingScreen(onStart) {
     const progressBar = document.getElementById('progressBar');
     const playBtn = document.getElementById('playBtn');
     const loadingScreen = document.getElementById('loadingScreen');
@@ -24,5 +24,6 @@ export function initLoadingScreen() {
         localStorage.setItem('language', languageSelect.value);
 
         loadingScreen.style.display = 'none';
+        onStart();
     });
 }

@@ -1,6 +1,6 @@
 import { Monster } from './Entities/monster.js';
 import { Platform } from './Entities/platform.js';
-import {showPlatformNameLvl, showMonstersToKill} from './platformController.js';
+import { showPlatformNameLvl, showMonstersToKill } from './platformController.js';
 import { Player } from './Entities/player.js';
 import { isSoundEffectOn } from './soundEffectsButtonController.js';
 
@@ -25,6 +25,7 @@ export function updateMonster() {
         }
 
         positionHpBar(canvas);
+        positionMonsterNameHUD(canvas);
     });
 
     let hitTimeout;
@@ -61,28 +62,29 @@ function addMonsterOnField(monster, canvas) {
     positionHpBar(canvas);
 }
 
-function respawnMonster(canvas){
+function respawnMonster(canvas) {
     clearMonster();
 
     const monster = createMonster();
-    addMonsterOnField(monster, canvas)
+    addMonsterOnField(monster, canvas);
+    showMonsterNameHUD(monster, canvas);
 
     return monster;
 }
 
-function clearMonster(){
+function clearMonster() {
     document.querySelector('#enemy')?.remove();
     document.querySelector('#hpContainer')?.remove();
 }
 
-function killMonster(monster, canvas){
+function killMonster(monster, canvas) {
     monster.hp = 0;
     updateHpBar(monster);
-    
+
     const enemy = document.querySelector('#enemy');
     enemy.src = monster.deathImg;
-    
-    if(isSoundEffectOn()){
+
+    if (isSoundEffectOn()) {
         const deathSound = new Audio('./assets/audio/death-sound.mp3');
 
         deathSound.currentTime = 0;
@@ -92,7 +94,7 @@ function killMonster(monster, canvas){
     Player.monstersKilled += 1;
     Platform.amountOfMonstersKilled += 1;
 
-    if(Platform.amountOfMonstersKilled === Platform.monstersToKill){
+    if (Platform.amountOfMonstersKilled === Platform.monstersToKill) {
         Platform.level += 1;
         Platform.amountOfMonstersKilled = 0;
         showPlatformNameLvl(canvas);
@@ -105,7 +107,7 @@ function hitMonster(monster, hitTimeout, canvas) {
     canvas.onclick = () => {
         const enemy = document.querySelector('#enemy');
 
-        if (monster.hp <= 0) 
+        if (monster.hp <= 0)
             return;
 
         if (monster.hp - Player.damagePerHit <= 0) {
@@ -327,4 +329,33 @@ function positionHpBar(canvas) {
     hpContainer.style.width = `${rect.width}px`;
     hpContainer.style.left = `${rect.left}px`;
     hpContainer.style.top = `${rect.bottom - 40}px`;
+}
+
+function showMonsterNameHUD(monster, canvas) {
+    const nameHud = ensureMonsterNameHUD(canvas);
+    positionMonsterNameHUD(canvas);
+
+    nameHud.textContent = monster.name;
+}
+
+function ensureMonsterNameHUD(canvas) {
+    let hud = document.getElementById('mosterNameHud');
+
+    if (!hud) {
+        hud = document.createElement('div');
+        hud.id = 'mosterNameHud';
+        canvas.parentElement.appendChild(hud);
+    }
+
+    return hud;
+}
+
+function positionMonsterNameHUD(canvas) {
+    const hud = ensureMonsterNameHUD(canvas);
+    const rect = canvas.getBoundingClientRect();
+
+    hud.style.left = `${rect.left + 50}px`;
+    hud.style.top = `${rect.bottom - 65}px`;
+
+    hud.style.transform = 'translateX(-50%)';
 }

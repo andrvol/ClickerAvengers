@@ -482,7 +482,7 @@ body {
     text-shadow: 1px 1px 3px black;
 }
 
-#killBar {
+#killBar,#mosterNameHud {
     position: absolute;
     z-index: 10;
     align-items: center;
