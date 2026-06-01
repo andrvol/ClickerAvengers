@@ -9,13 +9,20 @@ export class Platform {
         'Fall',
         'Paradise'
     ];
-
-    static level = 1; // max - 40
     static amountOfMonstersKilled = 0;
     static monstersToKill = 15;
 
     static get img() {
         return `./assets/images/platforms/level${Math.ceil(Platform.level / 5)}.svg`;
+    }
+
+    static get level() {
+        return Number(localStorage.getItem('platformLevel') || 1);
+    }
+
+    static set level(value) {
+        if(Platform.level <= 40)
+            localStorage.setItem('platformLevel', value);
     }
 
     static get name() {

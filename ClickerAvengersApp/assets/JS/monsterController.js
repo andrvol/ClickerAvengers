@@ -1,6 +1,7 @@
-import { Monster } from './Entities/monster.js'
-import { Platform } from './Entities/platform.js'
-import { Player } from './Entities/player.js'
+import { Monster } from './Entities/monster.js';
+import { Platform } from './Entities/platform.js';
+import {showPlatformNameLvl, showMonstersToKill} from './platformController.js';
+import { Player } from './Entities/player.js';
 import { isSoundEffectOn } from './soundEffectsButtonController.js';
 
 export function updateMonster() {
@@ -74,7 +75,7 @@ function clearMonster(){
     document.querySelector('#hpContainer')?.remove();
 }
 
-function killMonster(monster){
+function killMonster(monster, canvas){
     monster.hp = 0;
     updateHpBar(monster);
     
@@ -89,6 +90,15 @@ function killMonster(monster){
     }
 
     Player.monstersKilled += 1;
+    Platform.amountOfMonstersKilled += 1;
+
+    if(Platform.amountOfMonstersKilled === Platform.monstersToKill){
+        Platform.level += 1;
+        Platform.amountOfMonstersKilled = 0;
+        showPlatformNameLvl(canvas);
+    }
+
+    showMonstersToKill(canvas);
 }
 
 function hitMonster(monster, hitTimeout, canvas) {
@@ -99,7 +109,7 @@ function hitMonster(monster, hitTimeout, canvas) {
             return;
 
         if (monster.hp - Player.damagePerHit <= 0) {
-            killMonster(monster);
+            killMonster(monster, canvas);
 
             clearTimeout(hitTimeout);
 

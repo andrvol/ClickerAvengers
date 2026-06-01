@@ -1,5 +1,5 @@
 export class Player{
-    static damagePerHit = 100;
+    static damagePerHit = 1;
     static weapons = [];
     static balanceCoins = 20;
     static hoursPlayed = 0;

@@ -23,7 +23,7 @@ body {
     margin-left: 5%;
     background-image: url('../images/platforms/level1.svg');
     background-size: 90% 90%;
-    background-position: center;
+    background-position: center 70px;
     background-repeat: no-repeat;
     cursor: url('../images/sword-cursor.png'), auto;
 }
@@ -192,6 +192,7 @@ body {
 
     pointer-events: none;
 }
+
 /* hp bar */
 
 .mainMenu {
@@ -287,17 +288,19 @@ body {
     border-radius: 15px;
     width: 400px;
 }
+
 .innerContainer {
     display: flex;
     flex-direction: column;
     gap: 10px;
 
-    height: 300px; 
+    height: 300px;
     overflow-y: auto;
     overflow-x: hidden;
 
     padding: 10px;
 }
+
 .innerContainer::-webkit-scrollbar {
     width: 12px;
 }
@@ -477,4 +480,27 @@ body {
 
     pointer-events: none;
     text-shadow: 1px 1px 3px black;
+}
+
+#killBar {
+    position: absolute;
+    z-index: 10;
+    align-items: center;
+    color: white;
+    display: flex;
+    gap: 3px;
+
+    pointer-events: none;
+
+    text-shadow:
+        -1px -1px 0 red,
+        1px -1px 0 red,
+        -1px 1px 0 red,
+        1px 1px 0 red;
+}
+
+.killIcon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
 }

@@ -10,8 +10,8 @@ export class Monster {
     static setCenterPosition(canvas) {
         const rect = canvas.getBoundingClientRect();
 
-        Monster.onFieldPositionX = rect.left + rect.width / 2 - 51 + 'px';
-        Monster.onFieldPositionY = rect.top + rect.height / 2 - 70 + 'px';
+        Monster.onFieldPositionX = rect.left + rect.width / 2 - 50 + 'px';
+        Monster.onFieldPositionY = rect.top + rect.height / 2 - 100 + 'px';
     }
 
     constructor(name, passiveImg, onHitImg, deathImg, deathSound, hp, coinsFromKilling) {
