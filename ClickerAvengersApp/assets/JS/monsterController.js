@@ -91,7 +91,7 @@ function killMonster(monster, canvas) {
         deathSound.play();
     }
 
-    Player.monstersKilled += 1;
+    Player.monstersKilledByPlayer += 1;
     Platform.amountOfMonstersKilled += 1;
 
     if (Platform.amountOfMonstersKilled === Platform.monstersToKill) {
