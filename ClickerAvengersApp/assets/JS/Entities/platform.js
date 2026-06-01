@@ -9,8 +9,15 @@ export class Platform {
         'Fall',
         'Paradise'
     ];
-    static amountOfMonstersKilled = 0;
     static monstersToKill = 15;
+
+    static get amountOfMonstersKilled(){
+        return Number(localStorage.getItem('monstersKilledOnLvl') || 0);
+    }
+
+    static set amountOfMonstersKilled(value){
+        localStorage.setItem('monstersKilledOnLvl', value);
+    }
 
     static get img() {
         return `./assets/images/platforms/level${Math.ceil(Platform.level / 5)}.svg`;
