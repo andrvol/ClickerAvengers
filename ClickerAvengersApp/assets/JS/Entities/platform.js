@@ -11,11 +11,11 @@ export class Platform {
     ];
     static monstersToKill = 15;
 
-    static get amountOfMonstersKilled(){
+    static get amountOfMonstersKilled() {
         return Number(localStorage.getItem('monstersKilledOnLvl') || 0);
     }
 
-    static set amountOfMonstersKilled(value){
+    static set amountOfMonstersKilled(value) {
         localStorage.setItem('monstersKilledOnLvl', value);
     }
 
@@ -24,12 +24,16 @@ export class Platform {
     }
 
     static get level() {
-        return Number(localStorage.getItem('platformLevel') || 5);
+        return Number(localStorage.getItem('platformLevel') || 1);
     }
 
     static set level(value) {
-        if(Platform.level <= 40)
+        if (Platform.level < 40) {
             localStorage.setItem('platformLevel', value);
+        }
+        else {
+            localStorage.setItem('platformLevel', 40);
+        }
     }
 
     static get name() {
