@@ -482,7 +482,8 @@ body {
     text-shadow: 1px 1px 3px black;
 }
 
-#killBar,#mosterNameHud {
+#killBar,
+#mosterNameHud {
     position: absolute;
     z-index: 10;
     align-items: center;
@@ -503,4 +504,21 @@ body {
     width: 20px;
     height: 20px;
     object-fit: contain;
+}
+
+#bossTimer {
+    position: absolute;
+    z-index: 10;
+
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+
+    text-shadow:
+        2px 2px 0 black,
+        -2px -2px 0 black,
+        2px -2px 0 black,
+        -2px 2px 0 black;
+
+    pointer-events: none;
 }

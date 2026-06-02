@@ -8,7 +8,7 @@ export class Player {
     }
 
     static get damagePerHit() {
-        return Number(localStorage.getItem('damagePerHit') || 1);
+        return Number(localStorage.getItem('damagePerHit') || 100);
     }
 
     static set damagePerHit(value) {
@@ -34,6 +34,16 @@ export class Player {
     static set monstersKilledByPlayer(value) {
         if (value >= 0) {
             localStorage.setItem('monstersKilledByPlayer', value);
+        }
+    }
+
+    static get bossesKilledByPlayer() {
+        return Number(localStorage.getItem('bossesKilledByPlayer') || 0);
+    }
+
+    static set bossesKilledByPlayer(value) {
+        if (value >= 0) {
+            localStorage.setItem('bossesKilledByPlayer', value);
         }
     }
 

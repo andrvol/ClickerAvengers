@@ -24,7 +24,7 @@ export class Platform {
     }
 
     static get level() {
-        return Number(localStorage.getItem('platformLevel') || 1);
+        return Number(localStorage.getItem('platformLevel') || 5);
     }
 
     static set level(value) {

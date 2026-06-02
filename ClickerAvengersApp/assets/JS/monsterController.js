@@ -3,6 +3,11 @@ import { Platform } from './Entities/platform.js';
 import { showPlatformNameLvl, showMonstersToKill } from './platformController.js';
 import { Player } from './Entities/player.js';
 import { isSoundEffectOn } from './soundEffectsButtonController.js';
+import { createBoss } from './bossController.js';
+import { Boss } from './Entities/boss.js';
+
+let bossInterval = null;
+let currentMonster = null;
 
 export function updateMonster() {
     const canvas = document.getElementById('playingField');
@@ -12,7 +17,7 @@ export function updateMonster() {
 
     Monster.setCenterPosition(canvas);
 
-    let monster = respawnMonster(canvas);
+    currentMonster = respawnMonster(canvas);
 
     window.addEventListener('resize', () => {
         Monster.setCenterPosition(canvas);
@@ -26,10 +31,11 @@ export function updateMonster() {
 
         positionHpBar(canvas);
         positionMonsterNameHUD(canvas);
+        positionBossTimer(canvas);
     });
 
     let hitTimeout;
-    hitMonster(monster, hitTimeout, canvas);
+    hitMonster(hitTimeout, canvas);
 }
 
 function addMonsterOnField(monster, canvas) {
@@ -65,11 +71,22 @@ function addMonsterOnField(monster, canvas) {
 function respawnMonster(canvas) {
     clearMonster();
 
-    const monster = createMonster();
-    addMonsterOnField(monster, canvas);
-    showMonsterNameHUD(monster, canvas);
+    currentMonster = createMonster();
 
-    return monster;
+    const killBar = document.getElementById('killBar');
+    if (currentMonster instanceof Boss) {
+        killBar.style.display = 'none';
+        startBossTimer(currentMonster, canvas);
+    }
+    else {
+        killBar.style.display = 'flex';
+        stopBossTimer();
+    }
+
+    addMonsterOnField(currentMonster, canvas);
+    showMonsterNameHUD(currentMonster, canvas);
+
+    return currentMonster;
 }
 
 function clearMonster() {
@@ -78,6 +95,10 @@ function clearMonster() {
 }
 
 function killMonster(monster, canvas) {
+    if (monster instanceof Boss) {
+        stopBossTimer();
+    }
+
     monster.hp = 0;
     updateHpBar(monster);
 
@@ -94,6 +115,13 @@ function killMonster(monster, canvas) {
     Player.monstersKilledByPlayer += 1;
     Platform.amountOfMonstersKilled += 1;
 
+    if (monster instanceof Boss && Platform.amountOfMonstersKilled === 1) {
+        Player.bossesKilledByPlayer += 1;
+        Platform.level += 1;
+        Platform.amountOfMonstersKilled = 0;
+        showPlatformNameLvl(canvas);
+    }
+
     if (Platform.amountOfMonstersKilled === Platform.monstersToKill) {
         Platform.level += 1;
         Platform.amountOfMonstersKilled = 0;
@@ -103,11 +131,12 @@ function killMonster(monster, canvas) {
     showMonstersToKill(canvas);
 }
 
-function hitMonster(monster, hitTimeout, canvas) {
+function hitMonster(hitTimeout, canvas) {
     canvas.onclick = () => {
+        const monster = currentMonster;
         const enemy = document.querySelector('#enemy');
 
-        if (monster.hp <= 0)
+        if (!monster || monster.hp <= 0)
             return;
 
         if (monster.hp - Player.damagePerHit <= 0) {
@@ -116,7 +145,7 @@ function hitMonster(monster, hitTimeout, canvas) {
             clearTimeout(hitTimeout);
 
             setTimeout(() => {
-                monster = respawnMonster(canvas);
+                respawnMonster(canvas);
             }, 400);
 
             return;
@@ -138,7 +167,7 @@ function hitMonster(monster, hitTimeout, canvas) {
 
 function createMonster() {
     if (Platform.level % 5 === 0) {
-        // дописать логику на вызов босса
+        return createBoss();
     }
 
     const monsterIndex = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
@@ -149,7 +178,7 @@ function createMonster() {
     const deadImg = `./assets/images/enemies/monsters-dead/${monsterIndex}.png`;
     const monsterName = getMonsterName(monsterIndex);
     const monsterHp = monsterIndex * (Math.floor(Math.random() * (200 - 100 + 1)) + 100);
-    const monsterDeathSound = './assets/audio/death-sound.mp3'
+    const monsterDeathSound = './assets/audio/death-sound.mp3';
 
     return new Monster(monsterName, passiveImg,
         onHitImg, deadImg, monsterDeathSound,
@@ -358,4 +387,72 @@ function positionMonsterNameHUD(canvas) {
     hud.style.top = `${rect.bottom - 65}px`;
 
     hud.style.transform = 'translateX(-50%)';
+}
+
+function startBossTimer(monster, canvas) {
+    stopBossTimer();
+
+    const timerHud = ensureBossTimer(canvas);
+
+    let timeLeft = Boss.millisecondsToKill / 1000;
+
+    updateBossTimerText(timerHud, timeLeft);
+    positionBossTimer(canvas);
+
+    bossInterval = setInterval(() => {
+        timeLeft--;
+
+        updateBossTimerText(timerHud, timeLeft);
+
+        if (timeLeft <= 0) {
+            stopBossTimer();
+
+            updateHpBar(currentMonster);
+
+            setTimeout(() => {
+                respawnMonster(canvas);
+            }, 100);
+        }
+    }, 1000);
+}
+
+function stopBossTimer() {
+    clearInterval(bossInterval);
+
+    const timerHud = document.getElementById('bossTimer');
+
+    if (timerHud) {
+        timerHud.remove();
+    }
+}
+
+function updateBossTimerText(timerHud, timeLeft) {
+    const minutes = Math.floor(timeLeft / 60);
+    const seconds = timeLeft % 60;
+
+    timerHud.textContent =
+        `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+}
+
+function ensureBossTimer(canvas) {
+    let timerHud = document.getElementById('bossTimer');
+
+    if (!timerHud) {
+        timerHud = document.createElement('div');
+        timerHud.id = 'bossTimer';
+
+        canvas.parentElement.appendChild(timerHud);
+    }
+
+    return timerHud;
+}
+
+function positionBossTimer(canvas) {
+    const timerHud = ensureBossTimer(canvas);
+    const rect = canvas.getBoundingClientRect();
+
+    timerHud.style.left = `${rect.left + rect.width / 2}px`;
+    timerHud.style.top = `${rect.top + 80}px`;
+
+    timerHud.style.transform = 'translateX(-50%)';
 }
