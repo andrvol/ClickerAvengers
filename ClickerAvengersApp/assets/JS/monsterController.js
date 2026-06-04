@@ -7,6 +7,7 @@ import { createBoss } from './bossController.js';
 import { Boss } from './Entities/boss.js';
 import { updateAmountOfClicks } from './menuController.js';
 import { updateMonsterKillData } from './monsterStatsController.js';
+import { updateAmountOfCoins } from './HUDController.js';
 
 let bossInterval = null;
 let currentMonster = null;
@@ -116,6 +117,7 @@ function killMonster(monster, canvas) {
 
     Player.monstersKilledByPlayer += 1;
     Platform.amountOfMonstersKilled += 1;
+    Player.balanceCoins += monster.coinsFromKilling;
 
 
     if (monster instanceof Boss && Platform.amountOfMonstersKilled === 1) {
@@ -126,6 +128,7 @@ function killMonster(monster, canvas) {
     }
 
     updateMonsterKillData();
+    updateAmountOfCoins(monster.coinsFromKilling);
 
     if (Platform.amountOfMonstersKilled === Platform.monstersToKill) {
         Platform.level += 1;
