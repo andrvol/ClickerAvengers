@@ -5,10 +5,10 @@ import { Player } from './Entities/player.js';
 import { isSoundEffectOn } from './soundEffectsButtonController.js';
 import { createBoss } from './bossController.js';
 import { Boss } from './Entities/boss.js';
-
+import { updateAmountOfClicks } from './menuController.js';
 let bossInterval = null;
 let currentMonster = null;
-
+let totalHit = null;
 export function updateMonster() {
     const canvas = document.getElementById('playingField');
 
@@ -153,6 +153,7 @@ function hitMonster(hitTimeout, canvas) {
 
         monster.hp -= Player.damagePerHit;
 
+
         updateHpBar(monster);
 
         enemy.src = monster.onHitImg;
@@ -162,6 +163,7 @@ function hitMonster(hitTimeout, canvas) {
         hitTimeout = setTimeout(() => {
             enemy.src = monster.passiveImg;
         }, 180);
+        updateAmountOfClicks();
     };
 }
 

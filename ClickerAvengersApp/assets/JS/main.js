@@ -6,6 +6,12 @@ import { initLoadingScreen } from "./loadingScreenController.js";
 import { updateMonster } from "./monsterController.js";
 import { updatePlatform } from "./platformController.js";
 import { Player } from "./Entities/player.js";
+import { initHeroShop } from './heroShopController.js';
+import { initMenu } from './menuController.js';
+
+initMenu();
+
+initHeroShop();
 
 initLoadingScreen(() => {
     setInterval(() => {
