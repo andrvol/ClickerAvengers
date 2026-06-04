@@ -93,7 +93,7 @@ function updateCardPrice(card) {
     card.querySelector('.price').textContent = price;
 }
 
-function formatNumber(num) {
+function formatNumber(num) { // на всякий случай но то херня 
     if (num >= 1e18) return (num / 1e18).toFixed(2) + 'Qi';
     if (num >= 1e15) return (num / 1e15).toFixed(2) + 'Qa';
     if (num >= 1e12) return (num / 1e12).toFixed(2) + 'T';
