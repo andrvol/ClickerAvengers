@@ -6,6 +6,8 @@ import { isSoundEffectOn } from './soundEffectsButtonController.js';
 import { createBoss } from './bossController.js';
 import { Boss } from './Entities/boss.js';
 import { updateAmountOfClicks } from './menuController.js';
+import { updateMonsterKillData } from './monsterStatsController.js';
+
 let bossInterval = null;
 let currentMonster = null;
 let totalHit = null;
@@ -115,12 +117,15 @@ function killMonster(monster, canvas) {
     Player.monstersKilledByPlayer += 1;
     Platform.amountOfMonstersKilled += 1;
 
+
     if (monster instanceof Boss && Platform.amountOfMonstersKilled === 1) {
         Player.bossesKilledByPlayer += 1;
         Platform.level += 1;
         Platform.amountOfMonstersKilled = 0;
         showPlatformNameLvl(canvas);
     }
+
+    updateMonsterKillData();
 
     if (Platform.amountOfMonstersKilled === Platform.monstersToKill) {
         Platform.level += 1;

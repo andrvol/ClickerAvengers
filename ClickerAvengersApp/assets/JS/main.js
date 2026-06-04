@@ -8,7 +8,7 @@ import { updatePlatform } from "./platformController.js";
 import { Player } from "./Entities/player.js";
 import { initHeroShop } from './heroShopController.js';
 import { initMenu } from './menuController.js';
-import { UpdateAmountOfCoins } from './HUDController.js';
+import { updateAmountOfCoins } from './HUDController.js';
 initMenu();
 
 initHeroShop();
@@ -28,5 +28,5 @@ initLoadingScreen(() => {
 
     updatePlatform();
     updateMonster();
-    UpdateAmountOfCoins();
+    updateAmountOfCoins();
 });
