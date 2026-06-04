@@ -28,5 +28,5 @@ initLoadingScreen(() => {
 
     updatePlatform();
     updateMonster();
-    updateAmountOfCoins();
+    updateAmountOfCoins(0);
 });

@@ -8,7 +8,7 @@ export class Player {
     }
 
     static get damagePerHit() {
-        return Number(localStorage.getItem('damagePerHit') || 100000);
+        return Number(localStorage.getItem('damagePerHit') || 1);
     }
 
     static get totalClicks() {
