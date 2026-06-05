@@ -9,6 +9,7 @@ import { Player } from "./Entities/player.js";
 import { initHeroShop } from './heroShopController.js';
 import { initMenu } from './menuController.js';
 import { updateAmountOfCoins } from './HUDController.js';
+import { UpdateInfoBox } from "./infoBoxController.js";
 initMenu();
 
 initHeroShop();
@@ -25,7 +26,7 @@ initLoadingScreen(() => {
 
     clickAnimation();
 
-
+    UpdateInfoBox();
     updatePlatform();
     updateMonster();
     updateAmountOfCoins(0);

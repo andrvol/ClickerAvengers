@@ -8,6 +8,8 @@ import { Boss } from './Entities/boss.js';
 import { updateAmountOfClicks } from './menuController.js';
 import { updateMonsterKillData } from './monsterStatsController.js';
 import { updateAmountOfCoins } from './HUDController.js';
+import { initPassiveDps } from './passiveDPSController.js';
+import { updateAllAffordability } from './heroShopController.js';
 
 let bossInterval = null;
 let currentMonster = null;
@@ -21,7 +23,18 @@ export function updateMonster() {
     Monster.setCenterPosition(canvas);
 
     currentMonster = respawnMonster(canvas);
+    initPassiveDps(
+        () => currentMonster,
+        () => {
+            if (currentMonster && currentMonster.hp > 0) {
+                killMonster(currentMonster, canvas);
 
+                setTimeout(() => {
+                    currentMonster = respawnMonster(canvas);
+                }, 400);
+            }
+        }
+    )
     window.addEventListener('resize', () => {
         Monster.setCenterPosition(canvas);
 
@@ -118,7 +131,9 @@ function killMonster(monster, canvas) {
     Player.monstersKilledByPlayer += 1;
     Platform.amountOfMonstersKilled += 1;
     Player.balanceCoins += monster.coinsFromKilling;
-
+    updateMonsterKillData();
+    updateAmountOfCoins(Player.balanceCoins);
+    updateAllAffordability();
 
     if (monster instanceof Boss && Platform.amountOfMonstersKilled === 1) {
         Player.bossesKilledByPlayer += 1;
@@ -127,8 +142,6 @@ function killMonster(monster, canvas) {
         showPlatformNameLvl(canvas);
     }
 
-    updateMonsterKillData();
-    updateAmountOfCoins(monster.coinsFromKilling);
 
     if (Platform.amountOfMonstersKilled === Platform.monstersToKill) {
         Platform.level += 1;
@@ -187,7 +200,8 @@ function createMonster() {
     const onHitImg = `./assets/images/enemies/monsters-hit/${monsterIndex}.png`;
     const deadImg = `./assets/images/enemies/monsters-dead/${monsterIndex}.png`;
     const monsterName = getMonsterName(monsterIndex);
-    const monsterHp = monsterIndex * (Math.floor(Math.random() * (200 - 100 + 1)) + 100);
+    const monsterHp = Math.floor(
+        (monsterIndex * 8) * (0.85 + Math.random() * 0.3) * Math.pow(Player.damagePerHit, 1.1));
     const monsterDeathSound = './assets/audio/death-sound.mp3';
 
     return new Monster(monsterName, passiveImg,

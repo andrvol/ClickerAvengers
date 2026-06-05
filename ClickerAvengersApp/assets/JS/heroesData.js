@@ -1,10 +1,10 @@
 export const heroes = [
-    { name: 'Dawn Knight', level: 1, basePrice: 153 },
-    { name: 'Forest Warden', level: 1, basePrice: 9290 },
-    { name: 'Tiny Gladiator', level: 1, basePrice: 3500 },
-    { name: 'Sky Ranger', level: 1, basePrice: 13200 },
-    { name: 'Ember Mage', level: 1, basePrice: 45000 },
-    { name: 'Stone Guardian', level: 1, basePrice: 120000 },
-    { name: 'Shadow Rogue', level: 1, basePrice: 320000 },
-    { name: 'Thunder Paladin', level: 1, basePrice: 950000 }
+    { name: 'Dawn Knight',     level: 1, basePrice: 15,      damageBonus: 1,    passive: false },
+    { name: 'Forest Warden',   level: 1, basePrice: 80,      damageBonus: 3,    passive: false },
+    { name: 'Tiny Gladiator',  level: 1, basePrice: 250,     damageBonus: 8,    passive: false },
+    { name: 'Sky Ranger',      level: 1, basePrice: 800,     damageBonus: 20,   passive: false },
+    { name: 'Ember Mage',      level: 1, basePrice: 3000,    damageBonus: 60,   passive: false },
+    { name: 'Stone Guardian',  level: 1, basePrice: 10000,   damageBonus: 180,  passive: true  },
+    { name: 'Shadow Rogue',    level: 1, basePrice: 40000,   damageBonus: 1200, passive: true  },
+    { name: 'Thunder Paladin', level: 1, basePrice: 150000,  damageBonus: 3900, passive: true  },
 ];

@@ -1,4 +1,5 @@
 import { Player } from "./Entities/player.js";
+import { PlayClickSound } from "./SoundController.js";
 export function initMenu() {
 
     const boosterBtn = document.getElementById('booster-Btn');
@@ -23,6 +24,7 @@ export function updateAmountOfClicks() {
 
 
 function showPage(id) {
+    PlayClickSound();
     if(id === 'statisticsPage') {
         GetInfo();
     }
