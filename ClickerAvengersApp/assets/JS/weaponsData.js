@@ -5,7 +5,6 @@ export const weapons = [
         rarity: 'Mythic',
         price: 250000000,
         damage: 12,
-        critChance: 45,
         image: './assets/images/swords/Cursed-Reaper.svg'
     },
     {
@@ -14,7 +13,7 @@ export const weapons = [
         rarity: 'Rare',
         price: 500,
         damage: 15,
-        critChance: 5,
+
         image: './assets/images/swords/Flamefang.svg'
     },
     {
@@ -23,7 +22,6 @@ export const weapons = [
         rarity: 'Epic',
         price: 2500,
         damage: 50,
-        critChance: 10,
         image: './assets/images/swords/Thunderstrike.svg'
     },
     {
@@ -32,7 +30,6 @@ export const weapons = [
         rarity: 'Legendary',
         price: 12000,
         damage: 150,
-        critChance: 20,
         image: './assets/images/swords/Demons-Wrath.svg'
     },
     {
@@ -41,7 +38,7 @@ export const weapons = [
         rarity: 'Epic',
         price: 800000,
         damage: 550,
-        critChance: 20,
+
         image: './assets/images/swords/Emerald-Fang.svg'
     },
     {
@@ -50,7 +47,7 @@ export const weapons = [
         rarity: 'Divine',
         price: 75000,
         damage: 500,
-        critChance: 35,
+
         image: './assets/images/swords/Blade-of-Eternity.svg'
     }
 ];

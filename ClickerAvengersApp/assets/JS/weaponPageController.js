@@ -12,7 +12,6 @@ export function GenerateWeapons() {
             <span>${weapon.name}</span>
             <span>Rarity: ${weapon.rarity}</span>
             <span>Damage: ${weapon.damage}</span>
-            <span>Crit Chance: ${weapon.critChance}%</span>
             <span class="price-weapon">${weapon.price}</span>
         </div>
 
