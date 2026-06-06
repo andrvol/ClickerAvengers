@@ -35,7 +35,7 @@ export class Player {
     }
 
     static get balanceCoins() {
-        return Number(localStorage.getItem('balanceCoins') || 20);
+        return Number(localStorage.getItem('balanceCoins') || 0);
     }
 
     static set balanceCoins(value) {

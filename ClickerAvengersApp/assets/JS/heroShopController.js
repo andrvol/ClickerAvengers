@@ -33,8 +33,6 @@ export function initHeroShop() {
 }
 
 function recalcPassiveDpsFromSave(heroContainer) {
-    // Player.passiveDps = 0;
-
     heroContainer.querySelectorAll('.heroCard').forEach(card => {
         const passive = card.dataset.passive === 'true';
         if (!passive) return;
@@ -93,9 +91,9 @@ function renderHeroes(heroContainer) {
 function setupLevelButtons(levelButtons, heroContainer) {
     levelButtons.forEach(btn => {
         btn.addEventListener('click', () => {
-            if(isSoundEffectOn())
+            if (isSoundEffectOn())
                 PlayClickSound();
-            
+
             const value = btn.textContent.toLowerCase();
 
             buyAmount = value === 'max'
@@ -128,8 +126,6 @@ function buyHero(card, heroContainer) {
 
     if (passive) {
         Player.passiveDps = (Player.passiveDps) + damageBonus * amount;
-    } else {
-        Player.damagePerHit += damageBonus * amount;
     }
 
     const newLevel = level + amount;

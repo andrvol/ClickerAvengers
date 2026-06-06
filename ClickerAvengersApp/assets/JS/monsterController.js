@@ -55,7 +55,6 @@ function addMonsterOnField(monster, canvas) {
 
     canvas.parentElement.appendChild(enemy);
 
-    // полоска hp
     const hpContainer = document.createElement('div');
     hpContainer.id = 'hpContainer';
 
@@ -122,7 +121,7 @@ function killMonster(monster, canvas) {
     Platform.amountOfMonstersKilled += 1;
     Player.balanceCoins += monster.coinsFromKilling;
     updateMonsterKillData();
-    updateAmountOfCoins(Player.balanceCoins);
+    updateAmountOfCoins(monster.coinsFromKilling);
     updateAllAffordability();
     UpdateInfoBox();
 
