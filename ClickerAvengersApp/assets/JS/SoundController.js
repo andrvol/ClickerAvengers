@@ -13,6 +13,11 @@ export function CancelSound() {
 export function MatchReady() {
     const Match = new Audio('./assets/audio/match-ready.mp3');
     Match.volume = 0.2;
-
     Match.play();
+}
+export function RandomDeathSound() {
+    const deathSound = ['./assets/audio/death-sound.mp3', './assets/audio/death-sound2.mp3'];
+    const randomSound = deathSound[Math.floor(Math.random() * deathSound.length)];
+    const audio = new Audio(randomSound);
+    audio.play();
 }

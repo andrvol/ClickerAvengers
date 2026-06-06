@@ -23,7 +23,7 @@ body {
     background-size: 90% 90%;
     background-position: center 70px;
     background-repeat: no-repeat;
-    cursor: url('../images/sword-cursor.png'), auto;
+    cursor: url('../images/swords/cursors/sword-cursor.png'), auto;
 }
 
 #dayNightBtn {
@@ -523,11 +523,11 @@ body {
     padding: 15px;
 }
 
-#analyticsPage {
+#weaponsPage {
+    height: 650px;
     overflow-y: auto;
-    padding: 15px;
+    overflow-x: hidden;
 }
-
 .statsCategory {
     margin-bottom: 35px;
 }
@@ -567,4 +567,103 @@ body {
     font-size: 34px;
     color: white;
     font-family: 'Lilita One', cursive;
+}
+
+.weapons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 15px;
+}
+
+.weapon-div {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    background: linear-gradient(135deg, #2b1b12, #5a341c);
+    border: 3px solid #d89b3d;
+    border-radius: 18px;
+
+    padding: 12px;
+    min-height: 120px;
+
+    box-shadow: 0 5px 0 #7a431d;
+}
+
+.weapon-div img {
+    width: 85px;
+    height: 85px;
+    object-fit: contain;
+}
+
+.describing,
+.Describing {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+
+    color: #ffe7b0;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.describing span:first-child,
+.Describing span:first-child {
+    color: #fff2c7;
+    font-size: 18px;
+    text-shadow: 2px 2px 0 #5b2c14;
+}
+
+.price-weapon {
+    color: #ffd34d;
+}
+
+.buyWeapon {
+    width: 75px;
+    height: 40px;
+
+    border: 2px solid #ffdf7e;
+    border-radius: 12px;
+
+    background: linear-gradient(to bottom, #ffd15c, #b66a1f);
+    color: #3b1d0b;
+
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+
+    box-shadow: 0 4px 0 #6f3b13;
+}
+
+.buyWeapon:hover {
+    transform: translateY(-2px);
+}
+
+.buyWeapon:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #6f3b13;
+}
+
+.weapons-container::-webkit-scrollbar {
+    width: 10px;
+}
+
+.weapons-container::-webkit-scrollbar-track {
+    background: #5a341c;
+    border-radius: 10px;
+}
+
+.weapons-container::-webkit-scrollbar-thumb {
+    background: #d89b3d;
+    border-radius: 10px;
+}
+
+.weapons-container::-webkit-scrollbar-thumb:hover {
+    background: #f0b84f;
+}
+.weapons-container {
+    max-height: 550px;
+    overflow-y: auto;
 }

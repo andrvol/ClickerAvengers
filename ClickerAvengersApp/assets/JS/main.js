@@ -11,8 +11,9 @@ import { initMenu } from './menuController.js';
 import { updateAmountOfCoins } from './HUDController.js';
 import { UpdateInfoBox } from "./infoBoxController.js";
 import { MatchReady } from "./SoundController.js";
+import { GenerateWeapons } from "./weaponPageController.js";
 initMenu();
-
+GenerateWeapons();
 initHeroShop();
 
 initLoadingScreen(() => {

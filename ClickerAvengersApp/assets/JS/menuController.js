@@ -1,14 +1,15 @@
 import { Player } from "./Entities/player.js";
 import { PlayClickSound } from "./SoundController.js";
+import { GenerateWeapons } from "./weaponPageController.js";
 export function initMenu() {
 
     const boosterBtn = document.getElementById('booster-Btn');
     const statBtn = document.getElementById('stat-Btn');
-    const analBtn = document.getElementById('anal-Btn');
+    const weaponsBtn = document.getElementById('weapons-Btn');
 
     boosterBtn.addEventListener('click', () => showPage('boosterPage'));
     statBtn.addEventListener('click', () => showPage('statisticsPage'));
-    analBtn.addEventListener('click', () => showPage('analyticsPage'));
+    weaponsBtn.addEventListener('click', () => showPage('weaponsPage'));
 }
 function GetInfo() {
     document.getElementById("totalGold").textContent = Player.balanceCoins;

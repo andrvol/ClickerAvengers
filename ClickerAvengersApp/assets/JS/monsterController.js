@@ -10,6 +10,7 @@ import { updateMonsterKillData } from './monsterStatsController.js';
 import { updateAmountOfCoins } from './HUDController.js';
 import { initPassiveDps } from './passiveDPSController.js';
 import { updateAllAffordability } from './heroShopController.js';
+import { RandomDeathSound } from './SoundController.js';
 
 let bossInterval = null;
 let currentMonster = null;
@@ -124,10 +125,8 @@ function killMonster(monster, canvas) {
     enemy.src = monster.deathImg;
 
     if (isSoundEffectOn()) {
-        const deathSound = new Audio('./assets/audio/death-sound.mp3');
+        RandomDeathSound();
 
-        deathSound.currentTime = 0;
-        deathSound.play();
     }
 
     Player.monstersKilledByPlayer += 1;
