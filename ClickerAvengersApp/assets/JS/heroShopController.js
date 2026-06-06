@@ -93,7 +93,9 @@ function renderHeroes(heroContainer) {
 function setupLevelButtons(levelButtons, heroContainer) {
     levelButtons.forEach(btn => {
         btn.addEventListener('click', () => {
-            PlayClickSound();
+            if(isSoundEffectOn())
+                PlayClickSound();
+            
             const value = btn.textContent.toLowerCase();
 
             buyAmount = value === 'max'

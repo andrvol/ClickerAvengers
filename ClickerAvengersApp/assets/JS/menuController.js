@@ -1,5 +1,6 @@
 import { Player } from "./Entities/player.js";
 import { PlayClickSound } from "./SoundController.js";
+import { isSoundEffectOn } from "./soundEffectsButtonController.js";
 import { GenerateWeapons } from "./weaponPageController.js";
 export function initMenu() {
 
@@ -25,10 +26,11 @@ export function updateAmountOfClicks() {
 
 
 function showPage(id) {
-    PlayClickSound();
-    if(id === 'statisticsPage') {
+    if (isSoundEffectOn())
+        PlayClickSound();
+    if (id === 'statisticsPage')
         GetInfo();
-    }
+    
     document
         .querySelectorAll('.page')
         .forEach(page => page.classList.remove('active'));
