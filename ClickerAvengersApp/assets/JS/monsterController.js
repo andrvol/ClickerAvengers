@@ -10,6 +10,7 @@ import { updateMonsterKillData } from './monsterStatsController.js';
 import { updateAmountOfCoins } from './HUDController.js';
 import { updateAllAffordability } from './heroShopController.js';
 import { RandomDeathSound } from './SoundController.js';
+import { updateAmountOfKilledMonsters } from './infoBoxController.js';
 
 let bossInterval = null;
 let currentMonster = null;
@@ -54,7 +55,6 @@ function addMonsterOnField(monster, canvas) {
 
     canvas.parentElement.appendChild(enemy);
 
-    // полоска hp
     const hpContainer = document.createElement('div');
     hpContainer.id = 'hpContainer';
 
@@ -123,6 +123,7 @@ function killMonster(monster, canvas) {
     updateMonsterKillData();
     updateAmountOfCoins(monster.coinsFromKilling);
     updateAllAffordability();
+    updateAmountOfKilledMonsters();
 
     if (monster instanceof Boss && Platform.amountOfMonstersKilled === 1) {
         Player.bossesKilledByPlayer += 1;
