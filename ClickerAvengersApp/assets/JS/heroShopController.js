@@ -2,9 +2,8 @@ import { heroes } from './heroesData.js';
 import { Player } from './Entities/player.js';
 import { updateAmountOfCoins } from './HUDController.js';
 import { isSoundEffectOn } from './soundEffectsButtonController.js';
-import { updatePassiveDps } from './passiveDPSController.js';
 import { UpdateHitDamage } from './infoBoxController.js';
-import { CancelSound,PlayBuySound, PlayClickSound } from './SoundController.js';
+import { CancelSound, PlayBuySound, PlayClickSound } from './SoundController.js';
 let buyAmount = 1;
 
 function saveHeroLevels(heroContainer) {
@@ -34,7 +33,7 @@ export function initHeroShop() {
 }
 
 function recalcPassiveDpsFromSave(heroContainer) {
-    Player.passiveDps = 0;
+    // Player.passiveDps = 0;
 
     heroContainer.querySelectorAll('.heroCard').forEach(card => {
         const passive = card.dataset.passive === 'true';
@@ -48,8 +47,6 @@ function recalcPassiveDpsFromSave(heroContainer) {
             Player.passiveDps += damageBonus * levelsAboveBase;
         }
     });
-
-    updatePassiveDps();
 }
 
 function renderHeroes(heroContainer) {
@@ -128,8 +125,7 @@ function buyHero(card, heroContainer) {
     Player.balanceCoins -= totalCost;
 
     if (passive) {
-        Player.passiveDps = (Player.passiveDps ?? 0) + damageBonus * amount;
-        updatePassiveDps();
+        Player.passiveDps = (Player.passiveDps) + damageBonus * amount;
     } else {
         Player.damagePerHit += damageBonus * amount;
     }
@@ -139,7 +135,7 @@ function buyHero(card, heroContainer) {
     card.querySelector('.heroLevel').textContent = `Lvl.${newLevel}`;
 
     if (isSoundEffectOn()) {
-       PlayBuySound();
+        PlayBuySound();
     }
 
     updateAmountOfCoins(Player.balanceCoins);

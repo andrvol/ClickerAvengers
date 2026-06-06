@@ -8,7 +8,6 @@ import { Boss } from './Entities/boss.js';
 import { updateAmountOfClicks } from './menuController.js';
 import { updateMonsterKillData } from './monsterStatsController.js';
 import { updateAmountOfCoins } from './HUDController.js';
-import { initPassiveDps } from './passiveDPSController.js';
 import { updateAllAffordability } from './heroShopController.js';
 import { RandomDeathSound } from './SoundController.js';
 
@@ -24,18 +23,7 @@ export function updateMonster() {
     Monster.setCenterPosition(canvas);
 
     currentMonster = respawnMonster(canvas);
-    initPassiveDps(
-        () => currentMonster,
-        () => {
-            if (currentMonster && currentMonster.hp > 0) {
-                killMonster(currentMonster, canvas);
 
-                setTimeout(() => {
-                    currentMonster = respawnMonster(canvas);
-                }, 400);
-            }
-        }
-    )
     window.addEventListener('resize', () => {
         Monster.setCenterPosition(canvas);
 
@@ -154,6 +142,28 @@ function killMonster(monster, canvas) {
 }
 
 function hitMonster(hitTimeout, canvas) {
+    setInterval(() => {
+        const monster = currentMonster;
+
+        if (!monster || monster.hp <= 0)
+            return;
+
+        if (monster.hp - Player.passiveDps <= 0) {
+            killMonster(monster, canvas);
+
+            clearTimeout(hitTimeout);
+
+            setTimeout(() => {
+                respawnMonster(canvas);
+            }, 400);
+
+            return;
+        }
+
+        monster.hp -= Player.passiveDps;
+        updateHpBar(monster);
+    }, 1000);
+
     canvas.onclick = () => {
         const monster = currentMonster;
         const enemy = document.querySelector('#enemy');
