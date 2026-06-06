@@ -71,6 +71,8 @@ function addMonsterOnField(monster, canvas) {
 
     const hpBar = document.createElement('div');
     hpBar.id = 'hpBar';
+    const randomColor = `hsl(${Math.random() * 360}, 80%, 50%)`;
+    hpBar.style.backgroundColor = randomColor;
 
     const hpText = document.createElement('span');
     hpText.id = 'hpText';
