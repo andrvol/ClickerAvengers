@@ -32,4 +32,8 @@ initLoadingScreen(() => {
     updatePlatform();
     updateMonster();
     updateAmountOfCoins(0);
+    if (Player.selectedCursor) {
+        document.getElementById('playingField').style.cursor =
+            `url('${Player.selectedCursor}'), auto`;
+    }
 });

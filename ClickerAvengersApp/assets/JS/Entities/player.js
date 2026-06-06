@@ -17,12 +17,12 @@ export class Player {
         }
     }
 
-    static get passiveDps(){
-        return Number(localStorage.getItem('passiveDamagePerSecond') || 10);
+    static get passiveDps() {
+        return Number(localStorage.getItem('passiveDamagePerSecond') || 0);
     }
 
-    static set passiveDps(value){
-        if(value >= 0)
+    static set passiveDps(value) {
+        if (value >= 0)
             localStorage.setItem('passiveDamagePerSecond', value);
     }
 
@@ -70,5 +70,12 @@ export class Player {
 
     static set weapons(value) {
         localStorage.setItem('weapons', JSON.stringify(value));
+    }
+    static get selectedCursor() {
+        return localStorage.getItem('selectedCursor');
+    }
+
+    static set selectedCursor(value) {
+        localStorage.setItem('selectedCursor', value);
     }
 }

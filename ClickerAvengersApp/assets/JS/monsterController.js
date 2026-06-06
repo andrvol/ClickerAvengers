@@ -10,6 +10,7 @@ import { updateMonsterKillData } from './monsterStatsController.js';
 import { updateAmountOfCoins } from './HUDController.js';
 import { updateAllAffordability } from './heroShopController.js';
 import { RandomDeathSound } from './SoundController.js';
+import { UpdateInfoBox } from './infoBoxController.js';
 
 let bossInterval = null;
 let currentMonster = null;
@@ -123,6 +124,7 @@ function killMonster(monster, canvas) {
     updateMonsterKillData();
     updateAmountOfCoins(Player.balanceCoins);
     updateAllAffordability();
+    UpdateInfoBox();
 
     if (monster instanceof Boss && Platform.amountOfMonstersKilled === 1) {
         Player.bossesKilledByPlayer += 1;
@@ -212,7 +214,9 @@ function createMonster() {
     const deadImg = `./assets/images/enemies/monsters-dead/${monsterIndex}.png`;
     const monsterName = getMonsterName(monsterIndex);
     const monsterHp = Math.floor(
-        (monsterIndex * 8) * (0.85 + Math.random() * 0.3) * Math.pow(Player.damagePerHit, 1.1));
+        (40 + monsterIndex * 20) *
+        Math.pow(1.13, Platform.level - 1)
+    );
     const monsterDeathSound = './assets/audio/death-sound.mp3';
 
     return new Monster(monsterName, passiveImg,
