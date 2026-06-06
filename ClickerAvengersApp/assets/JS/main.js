@@ -12,9 +12,12 @@ import { updateAmountOfCoins } from './HUDController.js';
 import { UpdateInfoBox } from "./infoBoxController.js";
 import { MatchReady } from "./SoundController.js";
 import { GenerateWeapons } from "./weaponPageController.js";
+import { initRestartBtn } from "./restartBtnController.js";
+
 initMenu();
 GenerateWeapons();
 initHeroShop();
+initRestartBtn();
 
 initLoadingScreen(() => {
     setInterval(() => {
