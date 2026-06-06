@@ -18,7 +18,7 @@ export class Player {
     }
 
     static get passiveDps(){
-        return Number(localStorage.getItem('passiveDamagePerSecond') || 10);
+        return Number(localStorage.getItem('passiveDamagePerSecond') || 0);
     }
 
     static set passiveDps(value){
