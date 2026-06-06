@@ -10,3 +10,9 @@ export function CancelSound() {
     const cancelSound = new Audio('./assets/audio/typing-error.mp3');
     cancelSound.play();
 }
+export function MatchReady() {
+    const Match = new Audio('./assets/audio/match-ready.mp3');
+    Match.volume = 0.2;
+
+    Match.play();
+}

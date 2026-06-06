@@ -10,6 +10,7 @@ import { initHeroShop } from './heroShopController.js';
 import { initMenu } from './menuController.js';
 import { updateAmountOfCoins } from './HUDController.js';
 import { UpdateInfoBox } from "./infoBoxController.js";
+import { MatchReady } from "./SoundController.js";
 initMenu();
 
 initHeroShop();
@@ -18,7 +19,7 @@ initLoadingScreen(() => {
     setInterval(() => {
         Player.secondsPlayed += 1;
     }, 1000);
-
+    MatchReady();
     updateBackgroundMusicBtn();
     updateSoundEffectsBtn();
 
