@@ -12,7 +12,7 @@ export const weapons = [
         name: 'Flamefang',
         rarity: 'Rare',
         price: 500,
-        damage: 6,
+        damage: 7,
 
         image: './assets/images/swords/Flamefang.svg'
     },
@@ -21,7 +21,7 @@ export const weapons = [
         name: 'Thunderstrike',
         rarity: 'Epic',
         price: 2500,
-        damage: 50,
+        damage: 18,
         image: './assets/images/swords/Thunderstrike.svg'
     },
     {
@@ -29,7 +29,7 @@ export const weapons = [
         name: "Demon's Wrath",
         rarity: 'Legendary',
         price: 12000,
-        damage: 150,
+        damage: 90,
         image: './assets/images/swords/Demons-Wrath.svg'
     },
     {

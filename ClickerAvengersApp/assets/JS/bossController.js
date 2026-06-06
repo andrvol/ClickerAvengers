@@ -1,4 +1,5 @@
 import { Boss } from './Entities/boss.js';
+import { Platform } from './Entities/platform.js';
 
 export function createBoss() {
     const bossIndex = Math.floor(Math.random() * (7 - 1 + 1)) + 1;
@@ -8,11 +9,11 @@ export function createBoss() {
     const onHitImg = `./assets/images/enemies/bosses-hit/${bossIndex}.png`;
     const deadImg = `./assets/images/enemies/bosses-dead/${bossIndex}.png`;
     const name = getBossName(bossIndex);
-    const bossHp = bossIndex * (Math.floor(Math.random() * (200 - 100 + 1)) + 100);
+    const bossHp = Math.floor(100 * Math.pow(1.8, Platform.level - 1)) * 10;
     const bossDeathSound = './assets/audio/death-sound.mp3';
 
-    return new Boss(name, passiveImg, onHitImg, 
-        deadImg, bossDeathSound, 
+    return new Boss(name, passiveImg, onHitImg,
+        deadImg, bossDeathSound,
         bossHp, coinsFromKilling);
 }
 
