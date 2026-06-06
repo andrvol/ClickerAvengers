@@ -205,23 +205,52 @@ body {
 .upperMenu {
     display: flex;
     justify-content: center;
-
-    gap: 10px;
-    margin: 0;
+    gap: 12px;
+    padding-top: 8px;
 }
 
 .upperBtn {
-    background-color: rgba(165, 42, 42, 0.676);
-    border-radius: 5px;
-    border: burlywood;
-    padding: 3px;
+    padding: 8px 16px;
+
+    border: 2px solid #ffe0a6;
+    border-radius: 10px;
+
+    background: linear-gradient(
+        to bottom,
+        #c74f2d,
+        #8e2c1f
+    );
 
     color: white;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 3px 0 #5a1d14,
+        inset 0 1px 0 rgba(255,255,255,0.3);
+
+    transition: all 0.15s ease;
 }
 
 .upperBtn:hover {
-    cursor: pointer;
-    background-color: #444;
+    transform: translateY(-2px);
+
+    background: linear-gradient(
+        to bottom,
+        #dd5c37,
+        #a13424
+    );
+}
+
+.upperBtn:active {
+    transform: translateY(2px);
+
+    box-shadow:
+        0 1px 0 #5a1d14,
+        inset 0 1px 0 rgba(255,255,255,0.3);
 }
 
 .dpsBox {}
@@ -282,10 +311,26 @@ body {
 .mainMenu {
     position: fixed;
     left: 25px;
-    top: 25px;
-    width: 430px;
-}
+    top: 20px;
 
+    width: 430px;
+
+    background: linear-gradient(
+        180deg,
+        #e0a11b 0%,
+        #c8840f 30%,
+        #b8740c 100%
+    );
+
+    border: 5px solid #6d3f00;
+    border-radius: 25px;
+
+    box-shadow:
+        0 0 0 4px #ffda6a,
+        0 12px 30px rgba(0,0,0,0.35);
+
+    overflow: hidden;
+}
 .topMenu {
     width: 430px;
 
