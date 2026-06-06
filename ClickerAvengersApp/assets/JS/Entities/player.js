@@ -11,18 +11,27 @@ export class Player {
         return Number(localStorage.getItem('damagePerHit') || 1);
     }
 
+    static set damagePerHit(value) {
+        if (value > 0) {
+            localStorage.setItem('damagePerHit', value);
+        }
+    }
+
+    static get passiveDps(){
+        return Number(localStorage.getItem('passiveDamagePerSecond') || 10);
+    }
+
+    static set passiveDps(value){
+        if(value >= 0)
+            localStorage.setItem('passiveDamagePerSecond', value);
+    }
+
     static get totalClicks() {
         return Number(localStorage.getItem('totalClicks') || 0);
     }
 
     static set totalClicks(value) {
         localStorage.setItem('totalClicks', value);
-    }
-
-    static set damagePerHit(value) {
-        if (value > 0) {
-            localStorage.setItem('damagePerHit', value);
-        }
     }
 
     static get balanceCoins() {
