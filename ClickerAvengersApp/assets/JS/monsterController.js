@@ -121,7 +121,7 @@ function killMonster(monster, canvas) {
     Platform.amountOfMonstersKilled += 1;
     Player.balanceCoins += monster.coinsFromKilling;
     updateMonsterKillData();
-    updateAmountOfCoins(Player.balanceCoins);
+    updateAmountOfCoins(monster.coinsFromKilling);
     updateAllAffordability();
 
     if (monster instanceof Boss && Platform.amountOfMonstersKilled === 1) {

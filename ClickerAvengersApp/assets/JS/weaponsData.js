@@ -3,8 +3,8 @@ export const weapons = [
         id: 1,
         name: 'Cursed Reaper',
         rarity: 'Mythic',
-        price: 250000000,
-        damage: 12,
+        price: 1200000,
+        damage: 700,
         image: './assets/images/swords/Cursed-Reaper.svg'
     },
     {
@@ -12,7 +12,7 @@ export const weapons = [
         name: 'Flamefang',
         rarity: 'Rare',
         price: 500,
-        damage: 15,
+        damage: 6,
 
         image: './assets/images/swords/Flamefang.svg'
     },
@@ -36,8 +36,8 @@ export const weapons = [
         id: 5,
         name: 'Emerald Fang',
         rarity: 'Epic',
-        price: 800000,
-        damage: 550,
+        price: 600000,
+        damage: 600,
 
         image: './assets/images/swords/Emerald-Fang.svg'
     },
