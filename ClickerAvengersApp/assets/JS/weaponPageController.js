@@ -59,7 +59,7 @@ function buyWeapon(weapon, buyBtn) {
     Player.weapons = ownedWeapons;
     Player.balanceCoins -= weapon.price;
     Player.damagePerHit += weapon.damage;
-    updateAmountOfCoins(Player.balanceCoins);
+    updateAmountOfCoins();
     buyBtn.textContent = "Bought";
     buyBtn.disabled = true;
     document.getElementById('playingField').style.cursor =

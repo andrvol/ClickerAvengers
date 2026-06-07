@@ -136,7 +136,7 @@ function buyHero(card, heroContainer) {
         PlayBuySound();
     }
 
-    updateAmountOfCoins(Player.balanceCoins);
+    updateAmountOfCoins();
     updateCardPrice(card);
     updateAllAffordability();
     UpdateHitDamage();
@@ -212,7 +212,7 @@ function showNotEnoughCoins(card) {
     }, { once: true });
 }
 
-function formatNumber(num) {
+export function formatNumber(num) {
     if (num >= 1e18) return (num / 1e18).toFixed(2) + 'Qi';
     if (num >= 1e15) return (num / 1e15).toFixed(2) + 'Qa';
     if (num >= 1e12) return (num / 1e12).toFixed(2) + 'T';
