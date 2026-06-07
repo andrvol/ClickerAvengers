@@ -5,7 +5,7 @@ export const weapons = [
         rarity: 'Mythic',
         price: 1200000,
         damage: 700,
-        image: './assets/images/swords/Cursed-Reaper.svg',
+        image: './assets/images/swords/Cursed-Reaper.webp',
         cursor: './assets/images/swords/cursors/Cursed-Reaper.png'
     },
     {
@@ -14,7 +14,7 @@ export const weapons = [
         rarity: 'Rare',
         price: 500,
         damage: 7,
-        image: './assets/images/swords/Flamefang.svg',
+        image: './assets/images/swords/Flamefang.webp',
         cursor: './assets/images/swords/cursors/Flamefang.png'
     },
     {
@@ -23,7 +23,7 @@ export const weapons = [
         rarity: 'Epic',
         price: 2500,
         damage: 18,
-        image: './assets/images/swords/Thunderstrike.svg',
+        image: './assets/images/swords/Thunderstrike.webp',
         cursor: './assets/images/swords/cursors/Thunderstrike.png'
     },
     {
@@ -32,7 +32,7 @@ export const weapons = [
         rarity: 'Legendary',
         price: 12000,
         damage: 90,
-        image: './assets/images/swords/Demons-Wrath.svg',
+        image: './assets/images/swords/Demons-Wrath.webp',
         cursor: './assets/images/swords/cursors/Demons-Wrath.png'
     },
     {
@@ -41,7 +41,7 @@ export const weapons = [
         rarity: 'Divine',
         price: 75000,
         damage: 500,
-        image: './assets/images/swords/Blade-of-Eternity.svg',
+        image: './assets/images/swords/Blade-of-Eternity.webp',
         cursor: './assets/images/swords/cursors/Blade-of-Eternity.png'
 
     },
@@ -51,7 +51,7 @@ export const weapons = [
         rarity: 'Epic',
         price: 600000,
         damage: 600,
-        image: './assets/images/swords/Emerald-Fang.svg',
+        image: './assets/images/swords/Emerald-Fang.webp',
         cursor: './assets/images/swords/cursors/Emerald-Fang.png'
     }
 ];

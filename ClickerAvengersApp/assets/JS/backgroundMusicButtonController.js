@@ -33,6 +33,6 @@ function toggleMusic(btn) {
 
 function updateIcon(btn) {
     btn.src = music.muted
-        ? './assets/images/icons-elements/sound-off.svg'
-        : './assets/images/icons-elements/sound-on.svg';
+        ? './assets/images/icons-elements/sound-off.webp'
+        : './assets/images/icons-elements/sound-on.webp';
 }

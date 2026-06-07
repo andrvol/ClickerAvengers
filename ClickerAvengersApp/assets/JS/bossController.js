@@ -5,9 +5,9 @@ export function createBoss() {
     const bossIndex = Math.floor(Math.random() * (7 - 1 + 1)) + 1;
 
     const coinsFromKilling = bossIndex * (Math.floor(Math.random() * (200 - 100 + 1)) + 100)
-    const passiveImg = `./assets/images/enemies/bosses-passive/${bossIndex}.svg`;
-    const onHitImg = `./assets/images/enemies/bosses-hit/${bossIndex}.png`;
-    const deadImg = `./assets/images/enemies/bosses-dead/${bossIndex}.png`;
+    const passiveImg = `./assets/images/enemies/bosses-passive/${bossIndex}`;
+    const onHitImg = `./assets/images/enemies/bosses-hit/${bossIndex}.webp`;
+    const deadImg = `./assets/images/enemies/bosses-dead/${bossIndex}.webp`;
     const name = getBossName(bossIndex);
     const bossHp = Math.floor(100 * Math.pow(1.8, Platform.level - 1)) * 7;
     const bossDeathSound = './assets/audio/death-sound.mp3';

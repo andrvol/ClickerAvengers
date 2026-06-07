@@ -20,7 +20,7 @@ export class Platform {
     }
 
     static get img() {
-        return `./assets/images/platforms/level${Math.ceil(Platform.level / 5)}.svg`;
+        return `./assets/images/platforms/level${Math.ceil(Platform.level / 5)}.webp`;
     }
 
     static get level() {

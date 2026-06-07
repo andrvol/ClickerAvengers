@@ -1,6 +1,6 @@
 @media (min-width: 1170px) {
     body {
-        background-image: url("../images/background.png");
+        background-image: url("../images/background.webp");
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
@@ -21,7 +21,7 @@
         margin-top: 10%;
         margin-right: 5%;
         margin-left: 5%;
-        background-image: url('../images/platforms/level1.svg');
+        background-image: url('../images/platforms/level1.webp');
         background-size: 90% 90%;
         background-position: center 70px;
         background-repeat: no-repeat;

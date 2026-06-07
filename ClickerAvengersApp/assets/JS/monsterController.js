@@ -208,9 +208,9 @@ function createMonster() {
     const monsterIndex = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
 
     const coinsFromKilling = Platform.level * (Math.floor(Math.random() * (200 - 100 + 1)) + 100);
-    const passiveImg = `./assets/images/enemies/monsters-passive/${monsterIndex}.svg`;
-    const onHitImg = `./assets/images/enemies/monsters-hit/${monsterIndex}.png`;
-    const deadImg = `./assets/images/enemies/monsters-dead/${monsterIndex}.png`;
+    const passiveImg = `./assets/images/enemies/monsters-passive/${monsterIndex}.webp`;
+    const onHitImg = `./assets/images/enemies/monsters-hit/${monsterIndex}.webp`;
+    const deadImg = `./assets/images/enemies/monsters-dead/${monsterIndex}.webp`;
     const monsterName = getMonsterName(monsterIndex);
     const monsterHp = Math.floor(100 * Math.pow(1.8, Platform.level - 1));
     const monsterDeathSound = './assets/audio/death-sound.mp3';

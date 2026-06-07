@@ -15,7 +15,7 @@ export function updateDayNightBtn() {
 }
 
 function setNightTheme(btn) {
-    document.body.style.backgroundImage = 'url("./assets/images/background-night.png")';
+    document.body.style.backgroundImage = 'url("./assets/images/background-night.webp")';
 
     btn.style.backgroundColor = 'aliceblue';
     btn.style.color = 'black';
@@ -24,7 +24,7 @@ function setNightTheme(btn) {
 }
 
 function setDayTheme(btn) {
-    document.body.style.backgroundImage = 'url("./assets/images/background.png")';
+    document.body.style.backgroundImage = 'url("./assets/images/background.webp")';
 
     btn.style.backgroundColor = 'black';
     btn.style.color = 'aliceblue';

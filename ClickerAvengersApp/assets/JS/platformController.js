@@ -26,7 +26,7 @@ export function showMonstersToKill(canvas) {
     const killBar = ensureKillBar(canvas);
     killBar.innerHTML = `
     <span>${Platform.amountOfMonstersKilled} / ${Platform.monstersToKill}</span>
-    <img src="./assets/images/icons-elements/death-icon.svg" class="killIcon">`;
+    <img src="./assets/images/icons-elements/death-icon.webp" class="killIcon">`;
 }
 
 function ensureKillBar(canvas) {
