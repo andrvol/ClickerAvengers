@@ -3,8 +3,8 @@ export const weapons = [
         id: 1,
         name: 'Cursed Reaper',
         rarity: 'Mythic',
-        price: 250000000,
-        damage: 50000,
+        price: 1200000,
+        damage: 700,
         image: './assets/images/swords/Cursed-Reaper.svg',
         cursor: './assets/images/swords/cursors/Cursed-Reaper.png'
     },
@@ -13,7 +13,7 @@ export const weapons = [
         name: 'Flamefang',
         rarity: 'Rare',
         price: 500,
-        damage: 15,
+        damage: 7,
         image: './assets/images/swords/Flamefang.svg',
         cursor: './assets/images/swords/cursors/Flamefang.png'
     },
@@ -22,7 +22,7 @@ export const weapons = [
         name: 'Thunderstrike',
         rarity: 'Epic',
         price: 2500,
-        damage: 50,
+        damage: 18,
         image: './assets/images/swords/Thunderstrike.svg',
         cursor: './assets/images/swords/cursors/Thunderstrike.png'
     },
@@ -31,7 +31,7 @@ export const weapons = [
         name: "Demon's Wrath",
         rarity: 'Legendary',
         price: 12000,
-        damage: 150,
+        damage: 90,
         image: './assets/images/swords/Demons-Wrath.svg',
         cursor: './assets/images/swords/cursors/Demons-Wrath.png'
     },
@@ -49,8 +49,8 @@ export const weapons = [
         id: 6,
         name: 'Emerald Fang',
         rarity: 'Epic',
-        price: 800000,
-        damage: 3500,
+        price: 600000,
+        damage: 600,
         image: './assets/images/swords/Emerald-Fang.svg',
         cursor: './assets/images/swords/cursors/Emerald-Fang.png'
     }

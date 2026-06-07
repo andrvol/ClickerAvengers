@@ -212,10 +212,7 @@ function createMonster() {
     const onHitImg = `./assets/images/enemies/monsters-hit/${monsterIndex}.png`;
     const deadImg = `./assets/images/enemies/monsters-dead/${monsterIndex}.png`;
     const monsterName = getMonsterName(monsterIndex);
-    const monsterHp = Math.floor(
-        (40 + monsterIndex * 20) *
-        Math.pow(1.13, Platform.level - 1)
-    );
+    const monsterHp = Math.floor(100 * Math.pow(1.8, Platform.level - 1));
     const monsterDeathSound = './assets/audio/death-sound.mp3';
 
     return new Monster(monsterName, passiveImg,

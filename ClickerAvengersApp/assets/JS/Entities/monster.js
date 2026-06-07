@@ -1,8 +1,7 @@
 import { Platform } from './platform.js'
 
 export class Monster {
-    static levelBonusCoins = 1.0 * Platform.level; // множитель монет
-    // static levelHealthIncrease = 1.0 * Math.ceil(Platform.level / 5);
+    static levelBonusCoins = 1.0 * Platform.level;
 
     static onFieldPositionX = 0;
     static onFieldPositionY = 0;
@@ -21,7 +20,7 @@ export class Monster {
         this.deathImg = deathImg;
         this.deathSound = deathSound;
 
-        this.hp = hp; //* Monster.levelHealthIncrease;
+        this.hp = hp;
         this.maxHp = this.hp;
         this.coinsFromKilling = coinsFromKilling * Monster.levelBonusCoins;
     }
