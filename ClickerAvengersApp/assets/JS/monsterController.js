@@ -9,7 +9,7 @@ import { updateAmountOfClicks } from './menuController.js';
 import { updateMonsterKillData } from './monsterStatsController.js';
 import { updateAmountOfCoins } from './HUDController.js';
 import { updateAllAffordability } from './heroShopController.js';
-import { RandomDeathSound } from './SoundController.js';
+import { RandomDeathSound, FirstBloodSound, BossKillSound } from './SoundController.js';
 import { UpdateInfoBox } from './infoBoxController.js';
 
 let bossInterval = null;
@@ -113,8 +113,15 @@ function killMonster(monster, canvas) {
     enemy.src = monster.deathImg;
 
     if (isSoundEffectOn()) {
-        RandomDeathSound();
+        if (monster instanceof Boss) {
+            BossKillSound();
+        } else {
+            RandomDeathSound();
+        }
 
+        if (Player.monstersKilledByPlayer === 0) {
+            FirstBloodSound();
+        }
     }
 
     Player.monstersKilledByPlayer += 1;

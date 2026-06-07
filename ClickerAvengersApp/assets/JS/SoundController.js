@@ -17,8 +17,17 @@ export function MatchReady() {
     Match.play();
 }
 export function RandomDeathSound() {
-    const deathSound = ['./assets/audio/death-sound.mp3', './assets/audio/death-sound2.mp3'];
+    const deathSound = ['./assets/audio/death-sound.mp3', './assets/audio/death-sound2.mp3','./assets/audio/kill-sound3.mp3','./assets/audio/kill-sound4.mp3'];
     const randomSound = deathSound[Math.floor(Math.random() * deathSound.length)];
     const audio = new Audio(randomSound);
     audio.play();
+}
+export function BossKillSound() {
+    const bossKillSound = new Audio ('./assets/audio/boss-kill-sound.mp3');
+    bossKillSound.play();
+
+}
+export function FirstBloodSound() {
+    const fb = new Audio('./assets/audio/firstblood.mp3');
+    fb.play();
 }
