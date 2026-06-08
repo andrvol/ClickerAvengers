@@ -145,6 +145,9 @@
 
     #languageSelect {
         display: none;
+        border-radius: 5px;
+        width: auto;
+        border: solid 1px white;
     }
 
     /* меню загрузки */
