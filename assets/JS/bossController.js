@@ -9,7 +9,7 @@ export function createBoss() {
     const onHitImg = `./assets/images/enemies/bosses-hit/${bossIndex}.webp`;
     const deadImg = `./assets/images/enemies/bosses-dead/${bossIndex}.webp`;
     const name = getBossName(bossIndex);
-    const bossHp = Math.floor(100 * Math.pow(1.8, Platform.level - 1)) * 7;
+    const bossHp = Math.floor(100 * Math.pow(1.8, Platform.level - 1)) * 5;
     const bossDeathSound = './assets/audio/death-sound.mp3';
 
     return new Boss(name, passiveImg, onHitImg,
