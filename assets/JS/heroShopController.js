@@ -42,7 +42,7 @@ function recalcPassiveDpsFromSave(heroContainer) {
         const levelsAboveBase = level - 1;
 
         if (levelsAboveBase > 0) {
-            Player.passiveDps += damageBonus * levelsAboveBase;
+            Player.passiveDps = damageBonus * levelsAboveBase;
         }
     });
 }
