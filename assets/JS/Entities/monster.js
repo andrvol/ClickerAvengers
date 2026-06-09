@@ -1,7 +1,7 @@
 import { Platform } from './platform.js'
 
 export class Monster {
-    static levelBonusCoins = 1.0 * Platform.level;
+    static levelBonusCoins = 2.0 * Platform.level;
 
     static onFieldPositionX = 0;
     static onFieldPositionY = 0;

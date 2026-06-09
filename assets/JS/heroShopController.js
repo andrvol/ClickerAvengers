@@ -2,7 +2,7 @@ import { heroes } from './heroesData.js';
 import { Player } from './Entities/player.js';
 import { updateAmountOfCoins } from './HUDController.js';
 import { isSoundEffectOn } from './soundEffectsButtonController.js';
-import { UpdateHitDamage } from './infoBoxController.js';
+import { UpdateHitDamage, updatePassiveDps } from './infoBoxController.js';
 import { CancelSound, PlayBuySound, PlayClickSound } from './SoundController.js';
 let buyAmount = 1;
 
@@ -141,6 +141,7 @@ function buyHero(card, heroContainer) {
     updateAllAffordability();
     UpdateHitDamage();
     saveHeroLevels(heroContainer ?? document.getElementById('inner-Container'));
+    updatePassiveDPSStats();
 }
 
 function calcTotalPrice(level, basePrice, amount) {
@@ -180,6 +181,13 @@ function updateBuyButtons(heroContainer = document.getElementById('inner-Contain
     });
 
     updateAllAffordability();
+}
+
+function updatePassiveDPSStats(){
+    updatePassiveDps();
+
+    const totalDpsStats = document.getElementById('totalDps');
+    totalDpsStats.textContent = formatNumber(Player.passiveDps);
 }
 
 function updateCardPrice(card) {

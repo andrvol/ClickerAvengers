@@ -136,14 +136,14 @@ function killMonster(monster, canvas) {
         Player.bossesKilledByPlayer += 1;
         Platform.level += 1;
         Platform.amountOfMonstersKilled = 0;
-        showPlatformNameLvl(canvas);
+        setTimeout(() => showPlatformNameLvl(canvas), 400);
     }
 
 
     if (Platform.amountOfMonstersKilled === Platform.monstersToKill) {
         Platform.level += 1;
         Platform.amountOfMonstersKilled = 0;
-        showPlatformNameLvl(canvas);
+        setTimeout(() => showPlatformNameLvl(canvas), 400);
     }
 
     showMonstersToKill(canvas);
@@ -219,7 +219,7 @@ function createMonster() {
     const onHitImg = `./assets/images/enemies/monsters-hit/${monsterIndex}.webp`;
     const deadImg = `./assets/images/enemies/monsters-dead/${monsterIndex}.webp`;
     const monsterName = getMonsterName(monsterIndex);
-    const monsterHp = Math.floor(100 * Math.pow(1.8, Platform.level - 1));
+    const monsterHp = Math.floor(100 * Math.pow(1.8, Platform.level - 1) / 2);
     const monsterDeathSound = './assets/audio/death-sound.mp3';
 
     return new Monster(monsterName, passiveImg,

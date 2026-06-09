@@ -2,6 +2,7 @@ import { Player } from "./Entities/player.js";
 import { PlayClickSound } from "./SoundController.js";
 import { isSoundEffectOn } from "./soundEffectsButtonController.js";
 import { GenerateWeapons } from "./weaponPageController.js";
+import { formatNumber } from "./heroShopController.js";
 export function initMenu() {
 
     const boosterBtn = document.getElementById('booster-Btn');
@@ -13,11 +14,12 @@ export function initMenu() {
     weaponsBtn.addEventListener('click', () => showPage('weaponsPage'));
 }
 function GetInfo() {
-    document.getElementById("totalGold").textContent = Player.balanceCoins;
+    document.getElementById('totalDps').textContent = formatNumber(Player.passiveDps);
+    document.getElementById("totalGold").textContent = formatNumber(Player.balanceCoins);
     document.getElementById("monstersKilled").textContent = Player.monstersKilledByPlayer;
     document.getElementById("bossesKilled").textContent = Player.bossesKilledByPlayer;
-    document.getElementById("clickDamageStat").textContent = Player.damagePerHit;
-    document.getElementById("totalClicks").textContent = Player.totalClicks;
+    document.getElementById("clickDamageStat").textContent = formatNumber(Player.damagePerHit);
+    document.getElementById("totalClicks").textContent = formatNumber(Player.totalClicks);
 }
 export function updateAmountOfClicks() {
     Player.totalClicks = Player.totalClicks + 1;
