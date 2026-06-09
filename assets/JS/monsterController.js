@@ -136,14 +136,14 @@ function killMonster(monster, canvas) {
         Player.bossesKilledByPlayer += 1;
         Platform.level += 1;
         Platform.amountOfMonstersKilled = 0;
-        setTimeout(() => showPlatformNameLvl(canvas), 400);
+        setTimeout(() => showPlatformNameLvl(canvas), 350);
     }
 
 
     if (Platform.amountOfMonstersKilled === Platform.monstersToKill) {
         Platform.level += 1;
         Platform.amountOfMonstersKilled = 0;
-        setTimeout(() => showPlatformNameLvl(canvas), 400);
+        setTimeout(() => showPlatformNameLvl(canvas), 350);
     }
 
     showMonstersToKill(canvas);
