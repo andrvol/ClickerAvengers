@@ -12,26 +12,30 @@
 </head>
 
 <body>
-    <div id="desktopOnly">‼️This game is DESKTOP only‼️</div>
+    <div id="desktopOnly" data-i18n="desktopOnly">‼️This game is DESKTOP only‼️</div>
+
     <div id="loadingScreen">
         <h1>Clicker Avengers</h1>
+
         <select id="languageSelect">
             <option value="en" id="english-value">English</option>
             <option value="ru">Русский</option>
             <option value="ua">Українська</option>
         </select>
+
         <div class="progress-container">
             <div id="progressBar"></div>
         </div>
-        <button id="playBtn">Play</button>
+
+        <button id="playBtn" data-i18n="playBtn">Play</button>
     </div>
+
     <div class="sound-buttons">
-        <img id="musicBtn" class="music-btn" src="./assets/images/icons-elements/sound-on.webp" alt="musicOnOff" />
-        <img id="soundEffectsBtn" class="music-btn" src="./assets/images/icons-elements/effects-on.webp"
-            alt="soundEffectsOnOff" />
-        <img src="./assets/images/icons-elements/restart-icon.webp" alt="restartingGame" class="restart-btn"
-            id="restart-BTN">
+        <img id="musicBtn" class="music-btn" src="./assets/images/icons-elements/sound-on.webp" alt="musicOnOff">
+        <img id="soundEffectsBtn" class="music-btn" src="./assets/images/icons-elements/effects-on.webp" alt="soundEffectsOnOff">
+        <img src="./assets/images/icons-elements/restart-icon.webp" alt="restartingGame" class="restart-btn" id="restart-BTN">
     </div>
+
     <button id="dayNightBtn">☽</button>
 
     <div id="main-Menu" class="mainMenu">
@@ -39,20 +43,33 @@
             <img src="./assets/images/HUD/Coins-HUD.webp" alt="" class="HUD">
             <div class="goldAmount" id="goldAmount">1</div>
         </div>
+
         <div class="topMenu">
             <div class="upperMenu">
-                <button class="upperBtn" id="booster-Btn">Heroes</button>
-                <button class="upperBtn" id="weapons-Btn">Weapons</button>
-                <button class="upperBtn" id="stat-Btn">Statistics</button>
+                <button class="upperBtn" id="booster-Btn" data-i18n="heroesBtn">Heroes</button>
+                <button class="upperBtn" id="weapons-Btn" data-i18n="weaponsBtn">Weapons</button>
+                <button class="upperBtn" id="stat-Btn" data-i18n="statsBtn">Statistics</button>
             </div>
         </div>
+
         <div class="innerMenu" id="inner-Menu">
             <div class="page active" id="boosterPage">
                 <div class="containerMenu">
                     <div class="infoBox">
-                        <div class="DpsBox" id="DPS-Box">Monsters killed : 1</div>
-                        <div class="HitDamage" id="hit-Damage">Hit damage : 1</div>
-                        <div class="PassiveDamage" id="passive-Damage">Passive damage: 0</div>
+                        <div class="DpsBox">
+                            <span data-i18n="monstersKilledText">Monsters killed</span>:
+                            <span id="DPS-Box">1</span>
+                        </div>
+
+                        <div class="HitDamage">
+                            <span data-i18n="hitDamageText">Hit damage</span>:
+                            <span id="hit-Damage">1</span>
+                        </div>
+
+                        <div class="PassiveDamage">
+                            <span data-i18n="passiveDamageText">Passive damage</span>:
+                            <span id="passive-Damage">0</span>
+                        </div>
                     </div>
                 </div>
 
@@ -65,86 +82,75 @@
                 </div>
 
                 <div class="innerContainer" id="inner-Container"></div>
-
             </div>
 
             <div class="page" id="statisticsPage">
-
                 <div class="statsContainer">
-
                     <div class="statsCategory">
-                        <h2>Damage</h2>
+                        <h2 data-i18n="damageCategory">Damage</h2>
 
                         <div class="statRow">
-                            <span>Total DPS</span>
+                            <span data-i18n="totalDps">Total DPS</span>
                             <span id="totalDps">0</span>
                         </div>
                     </div>
 
                     <div class="statsCategory">
-                        <h2>Clicks</h2>
+                        <h2 data-i18n="clicksCategory">Clicks</h2>
 
                         <div class="statRow">
-                            <span>Total Clicks</span>
+                            <span data-i18n="totalClicks">Total Clicks</span>
                             <span id="totalClicks">0</span>
                         </div>
 
                         <div class="statRow">
-                            <span>Click Damage</span>
+                            <span data-i18n="clickDamage">Click Damage</span>
                             <span id="clickDamageStat">1</span>
                         </div>
                     </div>
 
                     <div class="statsCategory">
-                        <h2>Gold</h2>
+                        <h2 data-i18n="goldCategory">Gold</h2>
 
                         <div class="statRow">
-                            <span>Total Gold</span>
+                            <span data-i18n="totalGold">Total Gold</span>
                             <span id="totalGold">0</span>
                         </div>
 
                         <div class="statRow">
-                            <span>Gold Earned</span>
+                            <span data-i18n="goldEarned">Gold Earned</span>
                             <span id="earnedGold">0</span>
                         </div>
                     </div>
 
                     <div class="statsCategory">
-                        <h2>Monsters</h2>
+                        <h2 data-i18n="monstersCategory">Monsters</h2>
 
                         <div class="statRow">
-                            <span>Monsters Killed</span>
+                            <span data-i18n="monstersKilled">Monsters Killed</span>
                             <span id="monstersKilled">0</span>
                         </div>
 
                         <div class="statRow">
-                            <span>Bosses Killed</span>
+                            <span data-i18n="bossesKilled">Bosses Killed</span>
                             <span id="bossesKilled">0</span>
                         </div>
                     </div>
-
                 </div>
-
             </div>
 
             <div class="page" id="weaponsPage">
-
                 <div class="statsContainer">
-
                     <div class="statsCategory">
-                        <h2>Weapons</h2>
+                        <h2 data-i18n="weaponsCategory">Weapons</h2>
                     </div>
-
                 </div>
-                <section class="weapons-container" id="weapons-container">
-                </section>
+
+                <section class="weapons-container" id="weapons-container"></section>
             </div>
-
         </div>
-
     </div>
 
-    </div>
     <canvas id="playingField"></canvas>
 </body>
 

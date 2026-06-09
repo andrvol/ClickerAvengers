@@ -13,9 +13,11 @@ import { UpdateInfoBox } from "./infoBoxController.js";
 import { MatchReady } from "./SoundController.js";
 import { GenerateWeapons } from "./weaponPageController.js";
 import { initRestartBtn } from "./restartBtnController.js";
-import { initLanguage } from "./translationController.js";
+import { initTranslations } from "./translationController.js";
 
-initLanguage();
+initTranslations();
+
+
 initMenu();
 GenerateWeapons();
 initHeroShop();

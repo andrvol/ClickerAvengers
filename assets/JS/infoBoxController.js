@@ -6,15 +6,15 @@ export function UpdateInfoBox() {
     UpdateHitDamage();
     updatePassiveDps();
 }
+
 export function updateAmountOfKilledMonsters() {
-    document.getElementById("DPS-Box").textContent = "Monsters killed: " + Player.monstersKilledByPlayer;
+    document.getElementById("DPS-Box").textContent = formatNumber(Player.monstersKilledByPlayer);
 }
 
 export function UpdateHitDamage() {
-    document.getElementById("hit-Damage").textContent = "Hit Damage: " + Player.damagePerHit;
+    document.getElementById("hit-Damage").textContent = formatNumber(Player.damagePerHit);
 }
 
 export function updatePassiveDps() {
-    const mmS = document.getElementById('mainMenuPassiveDPS');
-    mmS.textContent = 'Passive damage: ' + formatNumber(Player.passiveDps);
+    document.getElementById("passive-Damage").textContent = formatNumber(Player.passiveDps);
 }
