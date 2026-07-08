@@ -1,6 +1,6 @@
-# ClickerAvengers
+# Clicker Avengers
 
-**ClickerAvengers** is a browser-based idle clicker game inspired by [*ClickerHeroes*](https://store.steampowered.com/app/363970/Clicker_Heroes/) and developed using **JavaScript**, **HTML5**, and **CSS3**.
+[**Clicker Avengers**](https://andrvol.github.io/ClickerAvengers/) is a browser-based idle clicker game inspired by [*Clicker Heroes*](https://store.steampowered.com/app/363970/Clicker_Heroes/) and developed using **JavaScript**, **HTML5**, and **CSS3**.
 
 The project was created from scratch without using game engines or external frameworks. The goal was to explore modern web development concepts while implementing core game mechanics, animations, sound effects, and interactive UI elements.
 
