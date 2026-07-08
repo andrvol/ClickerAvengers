@@ -26,4 +26,6 @@ The project was created from scratch without using game engines or external fram
 
 ## Purpose
 
-This project was built to improve my frontend development skills by working with object-oriented JavaScript, modular architecture, DOM manipulation, Canvas rendering, game logic, and browser APIs. It was also made to make my 27 active users happy!
+This project was built to improve my frontend development skills by working with object-oriented JavaScript, modular architecture, DOM manipulation, Canvas rendering, game logic, and browser APIs.
+
+P.S. Now we have **27** active users!
